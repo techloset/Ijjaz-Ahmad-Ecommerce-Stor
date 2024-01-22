@@ -4,8 +4,8 @@ import logo from "../assets/images/Product/headphone3.jpg";
 export default function BlogCard() {
   return (
     <>
-      <div className="card mb-16">
-        <div className="border-2  border-gray-300 rounded-3xl flex flex-wrap items-center">
+      <div className="card my-10">
+        <div className="border-2  border-gray-300 rounded-3xl flex flex-wrap items-center overflow-hidden">
           <div className="image">
             <img src={logo} alt="Product" className='w-[18rem]' />
           </div>

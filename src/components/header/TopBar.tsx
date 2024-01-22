@@ -1,4 +1,5 @@
 import React from 'react'
+import images from '../../assets/icons'
 
 export default function TopBar() {
   return (
@@ -7,16 +8,16 @@ export default function TopBar() {
         <div className="container">
           <nav className="text-center lightBlack md:flex items-center justify-between py-4">
             <div>
-              <p>Need help? Call us: (+98) 0234 456 789</p>
+              <p className='text-sm'>Need help? Call us: (+98) 0234 456 789</p>
             </div>
-            <div className="flex justify-center">
+            <div className="flex justify-center my-2">
               <div className="flex items-center mx-2">
-                <i className="fa fa-location-dot me-3 lightBlack"></i>
-                <p>Our store</p>
+                <img src={images.location} className='w-6 h-6' />
+                <p className='text-sm mx-1'>Our store</p>
               </div>
               <div className="flex items-center mx-2">
-                <i className="fa fa-truck-fast me-3 lightBlack"></i>
-                <p>Track your order</p>
+                <img src={images.truck} className='w-6 h-6' />
+                <p className='text-sm mx-1'>Track your order</p>
               </div>
             </div>
           </nav>

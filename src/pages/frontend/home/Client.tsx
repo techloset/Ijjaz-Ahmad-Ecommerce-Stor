@@ -28,8 +28,6 @@ export default function Client() {
                     spaceBetween={20}
                     pagination={{ clickable: true }}
                     loop={true}
-                    // onSwiper={(swiper) => console.log(swiper)}
-                    // onSlideChange={() => console.log('slide change')}
                     breakpoints={{
 
                         576: {

@@ -1,8 +1,15 @@
 import React from 'react'
 import logo from '../../assets/images/header/logo.png'
+import images from '../../assets/icons/index'
 import { Link } from 'react-router-dom'
-
+import { useSelector } from 'react-redux'
+interface RootState {
+  cart: {
+    cart: [];
+  };
+}
 export default function Header() {
+  const cart = useSelector((state: RootState) => state.cart.cart)
   return (
     <>
       <div className="bg-primary">
@@ -16,10 +23,10 @@ export default function Header() {
                 <div className="hidden md-2:block">
                   <form className="flex items-center search ms-8">
                     <div>
-                      <input type='text' className="outline-none rounded-s-xl w-72 p-2 px-3 text-gray-900 placeholder:text-gray-400" placeholder='Search any things' />
+                      <input type='text' className="outline-none rounded-2xl relative w-72 py-3 px-5 text-gray-900 placeholder:text-gray-400" placeholder='Search any things' />
                     </div>
                     <div>
-                      <button type="submit" className="rounded-e-xl bg-warning p-2 font-semibold px-6 text-white">Search</button>
+                      <button type="submit" className="rounded-2xl absolute top-[88px] left-[480px] py-3 px-5 bg-warning font-semibold text-white">Search</button>
                     </div>
                   </form>
                 </div>
@@ -27,24 +34,24 @@ export default function Header() {
               <div className='flex'>
                 <span className='flex text-white items-center font-sans '>
                   <div>
-                    <i className="fa-regular fa-user text-sm me-2 mx-6"></i>
+                    <img src={images.user} className='w-[1.5rem]' />
                   </div>
-                  <span className='hidden md:block'>User</span>
+                  <span className='hidden md:block md: ms-3'>User</span>
                 </span>
                 <span className='flex text-white items-center font-sans mx-6'>
                   <div className='flex'>
-                    <i className="fa-regular fa-heart text-sm me-2"></i>
-                    <span className="inline-flex items-center rounded-full bg-warning px-2 py-[2px] text-xs font-medium text-white ring-1 ring-inset ring-gray-500/10 me-2">
+                    <img src={images.heart} className='w-[1.2rem]' />
+                    <span className="inline-flex items-center rounded-full bg-warning px-2 py-[2px] text-xs font-medium text-white ring-1 ring-inset ring-gray-500/10 me-2 ms-2">
                       0
                     </span>
                   </div>
                   <span className='hidden md:block'>Sign In</span>
                 </span>
-                <Link to='/cart' className='flex text-white items-center font-sans mx-6'>
+                <Link to='/cart' className='flex text-white items-center font-sans mx-3'>
                   <div className='flex'>
-                    <i className="fa-solid fa-cart-shopping text-sm me-2"></i>
-                    <span className="inline-flex items-center rounded-full bg-warning px-2 py-[2px] text-xs font-medium text-white ring-1 ring-inset ring-gray-500/10 me-2">
-                      
+                    <img src={images.shoppingcart} className='w-[1.2rem]' />
+                    <span className="inline-flex items-center ms-3 rounded-full bg-warning px-2 py-[2px] text-xs font-medium text-white ring-1 ring-inset ring-gray-500/10 me-2">
+                      {cart.length}
                     </span>
                   </div>
                   <span className='hidden md:block'>Cart</span>

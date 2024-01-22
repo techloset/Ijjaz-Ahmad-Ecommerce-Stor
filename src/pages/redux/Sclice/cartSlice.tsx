@@ -1,13 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface CartProduct {
-  // Define the structure of your product here
   id: number;
-  // Add other properties as needed
 }
 
 interface CartState {
   cart: CartProduct[];
+  total_amount: number,
+  amount: number,
+  total_price: number,
 }
 
 const getLocalCartData = (): CartProduct[] => {
@@ -24,7 +25,10 @@ const cartSlice = createSlice({
   name: "cartProduct",
   initialState: {
     cart: getLocalCartData(),
-  } as CartState, // Use CartState as the type for initialState
+    total_amount: 0,
+    amount: 0,
+    total_price: 0,
+  } as CartState,
   reducers: {
     addproduct: (state, action: PayloadAction<CartProduct>) => {
       state.cart.push(action.payload);
@@ -35,6 +39,28 @@ const cartSlice = createSlice({
         (curItem) => curItem.id !== action.payload
       );
       state.cart = updatedCart;
+    },
+    SetDec: (state, action: PayloadAction<number>) => {
+      let updatedCart = state.cart.filter(
+        (curItem) => curItem.id !== action.payload
+      );
+      state.cart = updatedCart;
+    },
+    SetInc: (state, action: PayloadAction<number>) => {
+      let updatedProducts = state.cart.map((curElem: any) => {
+        if (curElem.id === action.payload) {
+          let incAmount = curElem.amounts + 1;
+
+          return {
+            ...curElem,
+            amount: incAmount,
+          };
+        } else {
+          return curElem;
+        }
+      });
+
+      state.cart = updatedProducts
     },
     deleteproduct: (state) => {
       state.cart = [];

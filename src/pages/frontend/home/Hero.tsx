@@ -21,8 +21,6 @@ export default function Hero() {
                   
                     pagination={{ clickable: true }}
                     loop={true}
-                // onSwiper={(swiper) => console.log(swiper)}
-                // onSlideChange={() => console.log('slide change')}
                 >
                     <SwiperSlide>
                         <div className="flex flex-wrap-reverse justify-around my-10 items-center">
@@ -73,10 +71,7 @@ export default function Hero() {
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
                     spaceBetween={20}
                     navigation
-                    // pagination={{ clickable: true }}
                     loop={true}
-                    // onSwiper={(swiper) => console.log(swiper)}
-                    // onSlideChange={() => console.log('slide change')}
                     breakpoints={{
 
                         576: {

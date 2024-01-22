@@ -1,9 +1,9 @@
 import axios from "axios";
 import { createSlice, PayloadAction, ThunkAction } from "@reduxjs/toolkit";
-import { RootState } from "../Store"; // Assuming you have a store file
+import { RootState } from "../Store"; 
 
 interface SingleProductState {
-  singleProduct: Record<string, any>; // Adjust the type accordingly
+  singleProduct: Record<string, any>; 
   loading: boolean;
   error: string | null;
 }
@@ -37,8 +37,8 @@ export const {
   fetchSingleProductError,
 } = singleProductSlice.actions;
 
-export const fetchSingleProduct = (
-  productId: number
+export const FetchSingleProduct = (
+  productId: string
 ): ThunkAction<void, RootState, unknown, any> => async (dispatch) => {
   try {
     dispatch(fetchSingleProductStart());

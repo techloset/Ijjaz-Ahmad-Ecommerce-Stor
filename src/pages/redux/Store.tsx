@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import productReducer from "./Sclice/ProductSclice";
 import cartReducer from "./Sclice/cartSlice";
 import singleProductReducer from "./Sclice/singleProductSlice";
+import { useDispatch } from "react-redux";
 
 const rootReducer = combineReducers({
     redux: productReducer,

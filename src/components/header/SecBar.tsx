@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import images from '../../assets/icons';
 
 export default function SecBar() {
   return (
@@ -7,21 +8,21 @@ export default function SecBar() {
 
       <div className="bg-gray">
         <header className='container'>
-          <nav className="mx-auto mt-6 md:mt-0 text-center py-3 sm:py-0 md:flex items-center justify-between">
+          <nav className="mx-auto text-center py-3 sm:py-0 md:flex items-center justify-between">
             <Link to={'/shop'} className='bg-warning text-white p-3 sm:p-4'>Browse categories <i className="fa-solid fa-angle-down ms-4"></i>
             </Link>
             <div className="menu hidden md-2:block">
               <ul className='flex items-center'>
                 <li className='mx-3'>
-                  <Link to={'/'}>
+                  <Link to={'/'} className='flex'>
                     Home
-                    <i className="fa-solid fa-angle-down ms-4"></i>
+                    <img src={images.arrrow} className="w-[1.2rem] ms-4" />
                   </Link>
                 </li>
                 <li className='mx-3'>
-                  <Link to={'/catalog'}>
+                  <Link to={'/catalog'} className='flex'>
                     Catalog
-                    <i className="fa-solid fa-angle-down ms-4"></i>
+                    <img src={images.arrrow} className="w-[1.2rem] ms-4" />
                   </Link>
                 </li>
                 <li className='mx-3'>
@@ -32,7 +33,6 @@ export default function SecBar() {
                 <li className='mx-3'>
                   <Link to={'/shop'}>
                     Shop
-                    <i className="fa-solid fa-angle-down ms-4"></i>
                   </Link>
                 </li>
                 <li className='mx-3'>
