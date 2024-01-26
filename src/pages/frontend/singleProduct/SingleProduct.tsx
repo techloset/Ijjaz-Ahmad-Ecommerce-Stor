@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { FetchSingleProduct } from '../../redux/Sclice/singleProductSlice'
-import images from '../../../assets/images/Product/headphone3.jpg';
+import img from '../../../assets/images/Product/headphone3.jpg';
 import { useDispatch, useSelector } from 'react-redux';
 import { addproduct } from '../../redux/Sclice/cartSlice';
+import images from '../../../assets/icons';
 
 interface ProductType {
     title: string;
@@ -26,11 +27,11 @@ interface RootState {
 }
 
 export default function SingleProduct() {
-    const [Path, SetPath] = useState<string>(images);
     const [amount, setAmount] = useState<number>(1);
-
+    
     const products = useSelector((state: RootState) => state.redux.products);
     const singleProduct = useSelector((state: RootState) => state.singleProduct.singleProduct);
+    const [Path, SetPath] = useState<string>(singleProduct.image);
 
     const { id } = useParams();
     const dispatch = useDispatch();
@@ -40,6 +41,9 @@ export default function SingleProduct() {
             dispatch(FetchSingleProduct(id) as any);
         }
     }, [id, dispatch]);
+    useEffect(() => {
+        SetPath(singleProduct.image)
+    }, [singleProduct]);
 
 
 
@@ -52,7 +56,7 @@ export default function SingleProduct() {
             image: singleProduct.image,
             description: singleProduct.description,
             category: singleProduct.category,
-            amounts:amount
+            amounts: amount
         };
         dispatch(addproduct(CartProduct) as any);
     };
@@ -85,9 +89,9 @@ export default function SingleProduct() {
                             />
 
                             <img
-                                src={images}
+                                src={img}
                                 className="h-[100px] w-[150px] md:h-[200px] md:w-[325px] border-2 rounded-3xl"
-                                onClick={() => SetPath(images)}
+                                onClick={() => SetPath(img)}
                                 alt="Logo 2"
                             />
 
@@ -99,12 +103,12 @@ export default function SingleProduct() {
                             <p className='mb-5 text-4xl text-primary font-semibold'>{singleProduct.title}</p>
                             <p className='text-2xl mb-3 text-primary font-semibold'>${singleProduct?.title}</p>
                             <div className="flex flex-wrap">
-                                <div className="icon">
-                                    <i className="fa-regular fa-star text-warning text-xl mx-1"></i>
-                                    <i className="fa-regular fa-star text-warning text-xl mx-1"></i>
-                                    <i className="fa-regular fa-star text-warning text-xl mx-1"></i>
-                                    <i className="fa-regular fa-star text-warning text-xl mx-1"></i>
-                                    <i className="fa-regular fa-star text-warning text-xl mx-1"></i>
+                                <div className="icon flex">
+                                    <img src={images.star} className="mx-1 h-[1.5rem]" />
+                                    <img src={images.star} className="mx-1 h-[1.5rem]" />
+                                    <img src={images.star} className="mx-1 h-[1.5rem]" />
+                                    <img src={images.star} className="mx-1 h-[1.5rem]" />
+                                    <img src={images.star} className="mx-1 h-[1.5rem]" />
                                 </div>
                                 <p className='ms-2 mb-5'>No Reviews</p>
                             </div>
@@ -125,8 +129,9 @@ export default function SingleProduct() {
                                 <button className="py-4 px-7 md:px-8 lg:px-12 bg-warning mx-3 mb-3 rounded-full text-white text-center" onClick={handleAddToCart}>Add To Cart</button>
                                 <button className="py-4 px-7 md:px-9 lg:px-12 bg-warning mx-3 mb-3 rounded-full text-white text-center">Buy It Now</button>
                                 <button className="py-2 px-[15px] bg-gray-200 mb-3 rounded-full text-center">
-                                    <i className="fa-regular fa-heart"></i>
+                                    <img src={images.heart} className="w-5" />
                                 </button>
+
                             </div>
                             <hr />
                             <p className='font-semibold mb-4 mt-6'>ID: <span className='font-light ms-2'>{id}</span></p>
@@ -173,7 +178,7 @@ export default function SingleProduct() {
                                     <div className="border-2 border-gray-300 rounded-3xl p-3 px-5 min-w-[100%]  sm:min-w-[280px]  md:min-w-[300px] lg:min-w-[330px] relative cardmain sm:mx-2">
                                         <div className="image">
                                             <span className='overlay-bg absolute right-4 top-4 lg:right-7 lg:top-5 p-2 text-center text-white w-8 h-8 flex items-center rounded-full'>
-                                                <i className="fa-regular fa-heart text-sm me-8"></i>
+                                                <img src={images.heart} />
                                             </span>
                                             <img src={image} alt="Product" className='h-[200px] w-[200px] mx-auto' />
                                         </div>
@@ -181,11 +186,12 @@ export default function SingleProduct() {
                                             <h3 className='mb-3 text-xl font-semibold text-primary'>{tname}...</h3>
                                             <p className='text-l font-semibold text-primary'>${price}</p>
                                             <div className="star-icon flex mt-2">
-                                                <i className="fa-solid fa-star text-gray-300"></i>
-                                                <i className="fa-solid fa-star text-gray-300 ms-1"></i>
-                                                <i className="fa-solid fa-star text-gray-300 ms-1"></i>
-                                                <i className="fa-solid fa-star text-gray-300 ms-1"></i>
-                                                <i className="fa-solid fa-star text-gray-300 ms-1"></i>
+                                                <img src={images.star} />
+                                                <img src={images.star} className="ms-1" />
+                                                <img src={images.star} className="ms-1" />
+                                                <img src={images.star} className="ms-1" />
+                                                <img src={images.star} className="ms-1" />
+
                                             </div>
                                         </div>
                                         <div className="overlay text-white">
@@ -194,12 +200,12 @@ export default function SingleProduct() {
                                                     <button className="flex justify-between items-center text-center cursor-pointer">
                                                         <p className='font-medium ms-1 md:ms-2 text-center'>Add To Cart</p>
                                                         <div className="bg-warning p-2 py-1 text-center ms-3 md:ms-7 rounded-full">
-                                                            <i className="fa-solid fa-cart-shopping"></i>
+                                                            <img src={images.shoppingcart} className="w-5" />
                                                         </div>
                                                     </button>
                                                 </div>
                                                 <Link to={`/singleproduct/${id}`} className="overlay-bg flex items-center justify-center text-xl p-2 text-center rounded-2xl">
-                                                    <i className="fa-solid fa-eye"></i>
+                                                    <img src={images.eye} />
                                                 </Link>
                                             </div>
                                         </div>

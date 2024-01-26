@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from "../assets/images/Product/headphone.png";
+import star from "../assets/images/star.png";
 
 export default function Card() {
   return (
@@ -13,11 +14,12 @@ export default function Card() {
             <h3 className='mb-3 text-xl font-semibold text-primary'>Play Game</h3>
             <p className='text-l font-semibold text-primary'>$11.5</p>
             <div className="star-icon flex mt-2">
-              <i className="fa-solid fa-star text-gray-300"></i>
-              <i className="fa-solid fa-star text-gray-300 ms-1"></i>
-              <i className="fa-solid fa-star text-gray-300 ms-1"></i>
-              <i className="fa-solid fa-star text-gray-300 ms-1"></i>
-              <i className="fa-solid fa-star text-gray-300 ms-1"></i>
+              <img src={star} />
+              <img src={star} className="ms-1" />
+              <img src={star} className="ms-1" />
+              <img src={star} className="ms-1" />
+              <img src={star} className="ms-1" />
+              
             </div>
           </div>
         </div>

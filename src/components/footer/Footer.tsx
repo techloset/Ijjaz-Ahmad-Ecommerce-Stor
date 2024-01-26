@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../../assets/images/Footer/logodark.png'
 import logo1 from '../../assets/images/Footer/headphone.png'
+import images from '../../assets/icons'
 export default function Footer() {
     return (
         <>
@@ -15,7 +16,9 @@ export default function Footer() {
                                 <input type='email' className="outline-none ps-3 py-2 bg-warning rounded-s-xl text-white" placeholder='Email address' />
                             </div>
                             <div>
-                                <button className="rounded-e-xl bg-warning pe-3 py-2  font-semibold text-white "><i className="fa-regular fa-paper-plane"></i></button>
+                                <button className="rounded-e-xl bg-warning pe-3 py-2  font-semibold text-white ">
+                                    <img src={images.send} alt="" />
+                                </button>
                             </div>
                         </form>
                         <div className="flex justify-center text-center">

@@ -8,6 +8,9 @@ const images = {
     facebook: require("./facebook.png"),
     arrrow: require("./arrow-down.png"),
     whatapps: require("./whatsapp.png"),
+    eye: require("./eye.png"),
+    send: require("./send-2.png"),
+    star: require("../images/star.png"),
 }
 
 export default images

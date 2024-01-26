@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { addproduct } from '../../redux/Sclice/cartSlice';
+import images from '../../../assets/icons';
+import { FetchProduct } from '../../redux/Sclice/ProductSclice';
 interface ProductType {
     title: string;
     price: number;
@@ -32,6 +34,11 @@ export default function Product() {
         };
         dispatch(addproduct(CartProduct) as any);
     };
+
+    useEffect(() => {
+        dispatch(FetchProduct() as any)
+      }, [dispatch])
+    
     return (
         <>
             <div className="container">
@@ -70,7 +77,7 @@ export default function Product() {
                             <div className=" border-2 border-gray-300 rounded-3xl p-3 px-5 relative cardmain mb-2">
                                 <div className='w-[282.28px] h-[168.18px]'>
                                     <span className='overlay-bg absolute right-4 top-4 lg:right-7 lg:top-5 p-2 text-center text-white w-8 h-8 flex items-center rounded-full'>
-                                        <i className="fa-regular fa-heart text-sm me-8"></i>
+                                        <img src={images.heart} alt="" />
                                     </span>
                                     <div >
 
@@ -91,15 +98,15 @@ export default function Product() {
                                 <div className="overlay text-white">
                                     <div className="grid grid-cols-3 gap-4">
                                         <div className="col-span-2 overlay-bg p-2 rounded-2xl">
-                                            <button className="flex justify-between items-center text-center cursor-pointer" onClick={() => handleAddToCart(item)}>
-                                                <p className='font-medium ms-1 md:ms-2 text-center'>Add To Cart</p>
-                                                <div className="bg-warning p-2 py-1 text-center ms-3 md:ms-7 rounded-full">
-                                                    <i className="fa-solid fa-cart-shopping"></i>
-                                                </div>
-                                            </button>
+                                            <div className="flex justify-between items-center text-center cursor-pointer" onClick={() => handleAddToCart(item)}>
+                                                <p className='font-medium  text-center'>Add To Cart</p>
+                                                <p className="bg-warning px-2 py-1 text-center rounded-full">
+                                                    <img src={images.shoppingcart} alt="" />
+                                                </p>
+                                            </div>
                                         </div>
-                                        <Link to={`/singleproduct/${item.id}`} className="overlay-bg flex items-center justify-center text-xl p-2 text-center rounded-2xl">
-                                            <i className="fa-solid fa-eye"></i>
+                                        <Link to={`/singleproduct/${item.id}`} className="overlay-bg flex items-center justify-center text-xl text-center rounded-2xl">
+                                            <img src={images.eye} />
                                         </Link>
                                     </div>
                                 </div>
