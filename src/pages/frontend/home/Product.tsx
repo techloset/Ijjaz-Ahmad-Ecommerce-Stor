@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { addproduct } from '../../redux/Sclice/cartSlice';
-import images from '../../../assets/icons';
-import { FetchProduct } from '../../redux/Sclice/ProductSclice';
+import eye from '../../../assets/icons/eye.svg';
+import cart from '../../../assets/icons/shopping-cart.svg';
+import star from '../../../assets/icons/star.svg';
+import heart from '../../../assets/icons/heart.svg';
+
 interface ProductType {
     title: string;
     price: number;
@@ -35,10 +38,8 @@ export default function Product() {
         dispatch(addproduct(CartProduct) as any);
     };
 
-    useEffect(() => {
-        dispatch(FetchProduct() as any)
-      }, [dispatch])
-    
+
+
     return (
         <>
             <div className="container">
@@ -72,27 +73,25 @@ export default function Product() {
                     let name = item.title.slice(0, 15)
                     if (i < 8) {
                         return (
-
-
-                            <div className=" border-2 border-gray-300 rounded-3xl p-3 px-5 relative cardmain mb-2">
-                                <div className='w-[282.28px] h-[168.18px]'>
-                                    <span className='overlay-bg absolute right-4 top-4 lg:right-7 lg:top-5 p-2 text-center text-white w-8 h-8 flex items-center rounded-full'>
-                                        <img src={images.heart} alt="" />
+                            <div className=" border-2 border-gray-300 w-[330px] rounded-3xl p-3 relative cardmain mb-2">
+                                <div className=''>
+                                    <span className='overlay-bg absolute right-4 top-4 lg:right-7 lg:top-5 p-2 text-center text-white flex items-center rounded-full'>
+                                        <img src={heart} alt="" />
                                     </span>
                                     <div >
 
-                                        <img src={item.image} alt="Product" className="w-[187.86px] h-[173.10px] mx-auto" />
+                                        <img src={item.image} alt="Product" className="mx-auto h-[200px]" />
                                     </div>
                                 </div>
                                 <div className="content mt-8">
                                     <h3 className='mb-3 text-xl font-semibold text-primary'>{name}...</h3>
                                     <p className='text-l font-semibold text-primary'>${item.price}</p>
                                     <div className="star-icon flex mt-2">
-                                        <i className="fa-solid fa-star text-gray-300"></i>
-                                        <i className="fa-solid fa-star text-gray-300 ms-1"></i>
-                                        <i className="fa-solid fa-star text-gray-300 ms-1"></i>
-                                        <i className="fa-solid fa-star text-gray-300 ms-1"></i>
-                                        <i className="fa-solid fa-star text-gray-300 ms-1"></i>
+                                        <img src={star} />
+                                        <img src={star} className="ms-1" />
+                                        <img src={star} className="ms-1" />
+                                        <img src={star} className="ms-1" />
+                                        <img src={star} className="ms-1" />
                                     </div>
                                 </div>
                                 <div className="overlay text-white">
@@ -100,13 +99,13 @@ export default function Product() {
                                         <div className="col-span-2 overlay-bg p-2 rounded-2xl">
                                             <div className="flex justify-between items-center text-center cursor-pointer" onClick={() => handleAddToCart(item)}>
                                                 <p className='font-medium  text-center'>Add To Cart</p>
-                                                <p className="bg-warning px-2 py-1 text-center rounded-full">
-                                                    <img src={images.shoppingcart} alt="" />
+                                                <p className="bg-warning px-[5px] py-1 text-center rounded-full">
+                                                    <img src={cart} className='w-4' />
                                                 </p>
                                             </div>
                                         </div>
-                                        <Link to={`/singleproduct/${item.id}`} className="overlay-bg flex items-center justify-center text-xl text-center rounded-2xl">
-                                            <img src={images.eye} />
+                                        <Link to={`/product/${item.id}`} className="overlay-bg flex items-center justify-center text-xl text-center rounded-2xl">
+                                            <img src={eye} />
                                         </Link>
                                     </div>
                                 </div>
@@ -114,8 +113,6 @@ export default function Product() {
 
 
                         );
-                    } else {
-                        return null;
                     }
                 })}
             </div>

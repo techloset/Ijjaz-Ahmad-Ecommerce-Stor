@@ -11,7 +11,7 @@ export default function index() {
         <Route path='/' element={<Home />} />
         <Route path='/shop' element={<Shop />} />
         <Route path='/cart' element={<Cart />} />
-        <Route path='/singleproduct/:id' element={<SingleProduct />} />
+        <Route path='/product/:id' element={<SingleProduct />} />
       </Routes>
     </>
   )

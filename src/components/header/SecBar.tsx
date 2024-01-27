@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-import images from '../../assets/icons';
+import arrrow from '../../assets/icons/arrow-down.svg';
+import arrrow1 from '../../assets/icons/arrow-down-2.svg';
 
 export default function SecBar() {
   return (
@@ -8,21 +9,25 @@ export default function SecBar() {
 
       <div className="bg-gray">
         <header className='container'>
-          <nav className="mx-auto text-center py-3 sm:py-0 md:flex items-center justify-between">
-            <Link to={'/shop'} className='bg-warning text-white p-3 sm:p-4  mt-sm-6'>Browse categories <i className="fa-solid fa-angle-down ms-4"></i>
-            </Link>
+          <nav className="text-center py-3 sm:py-0 md:flex items-center justify-between pt-[20px] sm:pt-0'">
+            <div className="flex justify-center  bg-warning text-white text-center p-4">
+              <Link to={'/shop'} className='text-center'>
+                Browse categories
+              </Link>
+              <img src={arrrow1} className="ms-4" />
+            </div>
             <div className="menu hidden md-2:block">
               <ul className='flex items-center'>
                 <li className='mx-3'>
                   <Link to={'/'} className='flex'>
                     Home
-                    <img src={images.arrrow} className="w-[1.2rem] ms-4" />
+                    <img src={arrrow} className="w-[1.2rem] ms-4" />
                   </Link>
                 </li>
                 <li className='mx-3'>
                   <Link to={'/catalog'} className='flex'>
                     Catalog
-                    <img src={images.arrrow} className="w-[1.2rem] ms-4" />
+                    <img src={arrrow} className="w-[1.2rem] ms-4" />
                   </Link>
                 </li>
                 <li className='mx-3'>

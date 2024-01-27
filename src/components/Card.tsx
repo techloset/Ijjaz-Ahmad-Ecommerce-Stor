@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from "../assets/images/Product/headphone.png";
-import star from "../assets/images/star.png";
+import star from "../assets/icons/star.svg";
 
 export default function Card() {
   return (

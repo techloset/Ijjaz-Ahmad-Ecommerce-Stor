@@ -1,5 +1,6 @@
 import React from 'react'
-import images from '../../assets/icons'
+import location from '../../assets/icons/location.svg'
+import truck from '../../assets/icons/truck.svg'
 
 export default function TopBar() {
   return (
@@ -12,11 +13,11 @@ export default function TopBar() {
             </div>
             <div className="flex justify-center my-2">
               <div className="flex items-center mx-2">
-                <img src={images.location} className='w-6 h-6' />
+                <img src={location} className='w-6 h-6' />
                 <p className='text-sm mx-1'>Our store</p>
               </div>
               <div className="flex items-center mx-2">
-                <img src={images.truck} className='w-6 h-6' />
+                <img src={truck} className='w-6 h-6' />
                 <p className='text-sm mx-1'>Track your order</p>
               </div>
             </div>

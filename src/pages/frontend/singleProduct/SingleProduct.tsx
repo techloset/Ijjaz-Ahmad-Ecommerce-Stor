@@ -4,7 +4,10 @@ import { FetchSingleProduct } from '../../redux/Sclice/singleProductSlice'
 import img from '../../../assets/images/Product/headphone3.jpg';
 import { useDispatch, useSelector } from 'react-redux';
 import { addproduct } from '../../redux/Sclice/cartSlice';
-import images from '../../../assets/icons';
+import eye from '../../../assets/icons/eye.svg';
+import cart from '../../../assets/icons/shopping-cart.svg';
+import star from '../../../assets/icons/star.svg';
+import heart from '../../../assets/icons/heart.svg';
 
 interface ProductType {
     title: string;
@@ -101,14 +104,14 @@ export default function SingleProduct() {
                     <div className="py-7 mx-auto w-full md:w-[50%] lg:w-[50%]">
                         <div>
                             <p className='mb-5 text-4xl text-primary font-semibold'>{singleProduct.title}</p>
-                            <p className='text-2xl mb-3 text-primary font-semibold'>${singleProduct?.title}</p>
+                            <p className='text-2xl mb-3 text-primary font-semibold'>${singleProduct.price}</p>
                             <div className="flex flex-wrap">
                                 <div className="icon flex">
-                                    <img src={images.star} className="mx-1 h-[1.5rem]" />
-                                    <img src={images.star} className="mx-1 h-[1.5rem]" />
-                                    <img src={images.star} className="mx-1 h-[1.5rem]" />
-                                    <img src={images.star} className="mx-1 h-[1.5rem]" />
-                                    <img src={images.star} className="mx-1 h-[1.5rem]" />
+                                    <img src={star} className="mx-1 h-[1.5rem]" />
+                                    <img src={star} className="mx-1 h-[1.5rem]" />
+                                    <img src={star} className="mx-1 h-[1.5rem]" />
+                                    <img src={star} className="mx-1 h-[1.5rem]" />
+                                    <img src={star} className="mx-1 h-[1.5rem]" />
                                 </div>
                                 <p className='ms-2 mb-5'>No Reviews</p>
                             </div>
@@ -129,7 +132,7 @@ export default function SingleProduct() {
                                 <button className="py-4 px-7 md:px-8 lg:px-12 bg-warning mx-3 mb-3 rounded-full text-white text-center" onClick={handleAddToCart}>Add To Cart</button>
                                 <button className="py-4 px-7 md:px-9 lg:px-12 bg-warning mx-3 mb-3 rounded-full text-white text-center">Buy It Now</button>
                                 <button className="py-2 px-[15px] bg-gray-200 mb-3 rounded-full text-center">
-                                    <img src={images.heart} className="w-5" />
+                                    <img src={heart} className="w-5" />
                                 </button>
 
                             </div>
@@ -178,7 +181,7 @@ export default function SingleProduct() {
                                     <div className="border-2 border-gray-300 rounded-3xl p-3 px-5 min-w-[100%]  sm:min-w-[280px]  md:min-w-[300px] lg:min-w-[330px] relative cardmain sm:mx-2">
                                         <div className="image">
                                             <span className='overlay-bg absolute right-4 top-4 lg:right-7 lg:top-5 p-2 text-center text-white w-8 h-8 flex items-center rounded-full'>
-                                                <img src={images.heart} />
+                                                <img src={heart} />
                                             </span>
                                             <img src={image} alt="Product" className='h-[200px] w-[200px] mx-auto' />
                                         </div>
@@ -186,11 +189,11 @@ export default function SingleProduct() {
                                             <h3 className='mb-3 text-xl font-semibold text-primary'>{tname}...</h3>
                                             <p className='text-l font-semibold text-primary'>${price}</p>
                                             <div className="star-icon flex mt-2">
-                                                <img src={images.star} />
-                                                <img src={images.star} className="ms-1" />
-                                                <img src={images.star} className="ms-1" />
-                                                <img src={images.star} className="ms-1" />
-                                                <img src={images.star} className="ms-1" />
+                                                <img src={star} />
+                                                <img src={star} className="ms-1" />
+                                                <img src={star} className="ms-1" />
+                                                <img src={star} className="ms-1" />
+                                                <img src={star} className="ms-1" />
 
                                             </div>
                                         </div>
@@ -200,12 +203,12 @@ export default function SingleProduct() {
                                                     <button className="flex justify-between items-center text-center cursor-pointer">
                                                         <p className='font-medium ms-1 md:ms-2 text-center'>Add To Cart</p>
                                                         <div className="bg-warning p-2 py-1 text-center ms-3 md:ms-7 rounded-full">
-                                                            <img src={images.shoppingcart} className="w-5" />
+                                                            <img src={cart} className="w-5" />
                                                         </div>
                                                     </button>
                                                 </div>
                                                 <Link to={`/singleproduct/${id}`} className="overlay-bg flex items-center justify-center text-xl p-2 text-center rounded-2xl">
-                                                    <img src={images.eye} />
+                                                    <img src={eye} />
                                                 </Link>
                                             </div>
                                         </div>

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeproduct, deleteproduct } from '../../redux/Sclice/cartSlice';
 import { Link } from 'react-router-dom';
-import images from '../../../assets/icons';
+import arrrow from '../../../assets/icons/arrow-down.svg';
+import xmark from '../../../assets/icons/close-circle.svg';
 interface CartItem {
   id: number;
   title: string;
@@ -29,9 +30,9 @@ const Cart: React.FC = () => {
     <>
       <div className="container mx-auto my-8">
         {cart.length ? (
-          <div className="flex flex-wrap justify-between">
-            <div className="w-[100%] sm:w-[90%] mx-auto sm:mx-0 md:w-[70%] lg:w-[75%]">
-              <div className="relative overflow-x-auto shadow-md mb-8">
+          <div className="flex flex-wrap justify-evenly">
+            <div className="w-[100%]  lg:w-[69%]">
+              <div className="relative overflow-x-auto mb-8">
                 <table className="w-full text-sm text-left rtl:text-right">
                   <thead className="text-xs text-gray-700 uppercase bg-footer">
                     <tr>
@@ -61,7 +62,7 @@ const Cart: React.FC = () => {
 
                       let title = item.title.slice(0, 15);
                       return (
-                        <tr key={i} className='border-y-2 relative'>
+                        <tr key={i} className='border-b-2 relative'>
                           <th scope="row" className="px-6 py-3 font-medium">
                             <div className="flex items-center">
                               <img src={item.image} alt="image" className='min-w-[50px] min-h-[50px] max-w-0 me-4' />
@@ -81,62 +82,60 @@ const Cart: React.FC = () => {
                           <td className="px-6 py-3">
                             ${Math.round(amount * item.price)}
                           </td>
-                          <button className='btn absolute right-4 top-8' onClick={() => dispatch(removeproduct(item.id))}><i className="fa-regular fa-circle-xmark"></i></button>
+                          <button className='btn absolute right-4 top-8' onClick={() => dispatch(removeproduct(item.id))}>
+                            <img src={xmark} />                            </button>
                         </tr>
                       );
                     })}
                   </tbody>
                 </table>
               </div>
-              <div className="flex flex-wrap justify-between items-center font-medium">
+              <div className="flex flex-wrap justify-center mb-5 sm:justify-between items-center font-medium">
                 <Link to={'/shop'} className='bg-warning text-white py-3 px-8 uppercase rounded-full'>Continue shopping</Link>
-                <Link to={'#'} className='border-gray-400 border-2 text-gray-400 py-3 px-8 uppercase rounded-full'>Update Cart</Link>
+
+                <Link to={'#'} className='border-gray-400 border-2 my-5 sm:my-0 text-gray-400 py-3 px-8 uppercase rounded-full'>Update Cart</Link>
                 <Link to={'/cart'} className='text-[#C33131] border-2 border-[#C33131] py-3 px-8 uppercase rounded-full' onClick={deleteall}>Clear cart</Link>
               </div>
             </div>
-            <div className="w-[100%] sm:w-[90%] mx-auto sm:mx-0 md:w-[30%] lg:w-[24%]">
-              <h2 className='text-xs text-gray-700 uppercase bg-footer mb-0 text-center border-2 border-b-0 font-bold py-3'>Cart Total</h2>
-              <div className="border-2 border-t-0 px-8">
-                <div className="flex flex-wrap justify-between mb-5 pt-4">
+            <div className="w-[100%]  lg:w-[29%] border-2">
+              <h2 className='text-xs text-gray-700 uppercase bg-footer mb-0 text-center  font-bold py-3'>Cart Total</h2>
+
+
+              <form className="flex flex-col mx-6 my-4">
+                <div className="flex flex-wrap justify-between py-3 border-b-2 font-medium">
                   <span>SubTotal</span> <span>$457674</span>
                 </div>
-                <hr />
-                <form className="flex items-center my-8 border-2 rounded-xl overflow-hidden">
-                  <div>
-                    <input type='email' className="outline-none ps-3 py-2 text-gray-400" placeholder='Enter coupon code' />
-                  </div>
-                  <div>
-                    <button className="pe-3 py-2  font-semibold text-primary">Apply</button>
-                  </div>
-                </form>
-                <hr />
-                <div className="my-8">
-                  <form className="flex items-center border-2 rounded-xl overflow-hidden">
-                    <div>
-                      <input type='email' className="outline-none ps-3 py-2 text-gray-400" placeholder='County' />
-                    </div>
-                    <div>
-                      <button className="py-2 text-end font-semibold text-primary"><img src={images.arrrow} alt="" /></button>
-                    </div>
-                  </form>
-                  <div className="flex justify-between items-center my-4 py-3 px-4 overflow-hidden">
-                  <span>Total Amount</span> <span>${'5657868'}</span>
-                  </div>
-                  <Link to={'/'} className='bg-warning text-white py-3 px-10 flex justify-center uppercase rounded-full'>Proceed to ckeckout</Link>
+                <div className="flex justify-between border-2 rounded-2xl mt-4 items-center ">
+                  <input type='email' className="w-9/12 outline-none ps-3  text-gray-400" placeholder='Enter coupon' />
+                  <button className="text-sm text-primary p-3">Apply</button>
                 </div>
-              </div>
+                <span className='border-b-2  my-4'></span>
+                <div className="flex justify-between border-2  items-center rounded-2xl">
+                  <input className="outline-none ps-3 w-9/12 text-gray-400" placeholder='County' />
+                  <button className=" text-end font-semibold text-primary p-2"><img src={arrrow} alt="" /></button>
+                </div>
+                
+                <div className="flex flex-wrap justify-between py-3">
+                  <span>Total Amount</span> <span>$457674</span>
+                </div>
+                  <Link to={'/'} className='bg-warning text-white py-2 px-3 text-center uppercase rounded-full'>
+                    Proceed to ckeckout
+                  </Link>
+              </form>
+
             </div>
           </div>
         ) : (
           <>
-            <h1 className='text-[55px]'>
+            <h1 className='sm:text-[55px] text-[25px] text-center sm:text-left'>
               <span className='text-primary'>No</span>
-              <span className='text-warning text-[50px]'> Product</span>
+              <span className='text-warning sm:text-[50px]'> Product</span>
               <span className='text-primary'> Your</span>
-              <span className='text-warning text-[50px]'> Cart</span>
+              <span className='text-warning sm:text-[50px]'> Cart</span>
             </h1>
-            <br />
-            <Link to={'/shop'} className='bg-warning text-white py-3 px-8 uppercase rounded-full'>Continue shopping</Link>
+            <div className='sm:text-left text-center my-4'>
+              <Link to={'/shop'} className='bg-warning text-white py-3 px-8 uppercase rounded-full'>Continue shopping</Link>
+            </div>
           </>
         )}
       </div>

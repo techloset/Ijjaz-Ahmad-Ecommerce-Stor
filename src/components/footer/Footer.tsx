@@ -1,7 +1,10 @@
 import React from 'react'
 import logo from '../../assets/images/Footer/logodark.png'
 import logo1 from '../../assets/images/Footer/headphone.png'
-import images from '../../assets/icons'
+import google from '../../assets/icons/google.svg'
+import facebook from '../../assets/icons/facebook.svg'
+import whatapp from '../../assets/icons/whatsapp.svg'
+import send from '../../assets/icons/send-2.svg'
 export default function Footer() {
     return (
         <>
@@ -17,7 +20,7 @@ export default function Footer() {
                             </div>
                             <div>
                                 <button className="rounded-e-xl bg-warning pe-3 py-2  font-semibold text-white ">
-                                    <img src={images.send} alt="" />
+                                    <img src={send} alt="" />
                                 </button>
                             </div>
                         </form>
@@ -33,9 +36,9 @@ export default function Footer() {
                             <p className='text-primary mb-3 font-medium'>64 st james boulevard <br />
                                 hoswick , ze2 7zj</p>
                             <div className="flex border-t-2 border-slate-950 p-2">
-                                <i className="fa-brands fa-google text-gary-500 me-2 text-[20px]"></i>
-                                <i className="fa-brands fa-whatsapp text-gary-500 mx-2 text-[20px]"></i>
-                                <i className="fa-brands fa-facebook text-gary-500 mx-2 text-[20px]"></i>
+                                    <img src={google} alt="" />
+                                    <img src={facebook} alt="" />
+                                    <img src={whatapp} alt="" />
                             </div>
                         </div>
                         <div className='mb-3'>

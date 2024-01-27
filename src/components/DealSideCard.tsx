@@ -1,7 +1,8 @@
 import React from 'react'
 import logo from '../assets/images/Product/headphone.png'
-import star from '../assets/images/star.png'
-import images from '../assets/icons'
+import star from '../assets/icons/star.svg'
+import eye from '../assets/icons/eye.svg'
+import cart from '../assets/icons/shopping-cart.svg'
 export default function DealSildCard() {
     return (
         <>
@@ -42,12 +43,12 @@ export default function DealSildCard() {
                                     <div className="flex justify-between items-center text-center">
                                         <p className='font-medium ms-1 md:ms-2 text-center'>Add To Cart</p>
                                         <div className="bg-warning p-2 py-1 text-center ms-3 md:ms-7 rounded-full">
-                                            <img src={images.shoppingcart} alt="" />
+                                            <img src={cart} alt="" />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="bg-[#87BCD9] flex items-center justify-center text-xl p-2 text-center rounded-2xl">
-                                            <img src={images.eye} alt="" />
+                                            <img src={eye} alt="" />
                                 </div>
                             </div>
                         </div>

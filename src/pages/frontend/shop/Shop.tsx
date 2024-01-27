@@ -2,48 +2,47 @@ import React, { ChangeEvent, useEffect, useState } from 'react';
 import AddSection from '../../../components/addSection';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { FetchProduct } from '../../redux/Sclice/ProductSclice';
-import { addproduct } from '../../redux/Sclice/cartSlice';
-import images from '../../../assets/icons';
 
+import { addproduct } from '../../redux/Sclice/cartSlice';
+import eye from '../../../assets/icons/eye.svg';
+import cart from '../../../assets/icons/shopping-cart.svg';
+import star from '../../../assets/icons/star.svg';
+import heart from '../../../assets/icons/heart.svg';
 interface RootState {
   redux: {
     products: [];
   };
 }
 export default function Shop() {
-  // const { state } = useHookContext();
-  const state = useSelector((state: RootState) => state.redux.products);
 
-  // const products = stat;
+  const allproducts = useSelector((state: RootState) => state.redux.products);
 
-
-  const [allproducts, setallproducts] = useState(state);
-  const [fitlteProducts, SetfitlteProducts] = useState(state);
+  const [fitlteProducts, SetfitlteProducts] = useState(allproducts);
 
   const dispatch = useDispatch()
-
   useEffect(() => {
-    dispatch(FetchProduct() as any)
-  }, [dispatch])
+    SetfitlteProducts(allproducts);
+  }, [allproducts]);
 
+  const getCategoryLengthArray = (products: any[], property: string) => {
+    let categorySet = new Set(products.map((currElem) => currElem[property]));
 
+    categorySet.add("All");
 
+    const categoryLengthArray = Array.from(categorySet).map((category) => {
+      const length =
+        category === "All"
+          ? products.length
+          : products.filter((product) => product[property] === category).length;
 
-
-
-
-
-  const getUnique = (products: any[], property: string) => {
-    let newVal = products.map((currElem) => {
-      return currElem[property];
+      return { category, length };
     });
-    const cata: string[] = ["All", ...Array.from(new Set(newVal))];
 
-    return cata;
+    return categoryLengthArray;
   };
 
-  let categories = getUnique(state, "category");
+  let categories = getCategoryLengthArray(allproducts, "category");
+
 
   const updatefiltervalue = (e: ChangeEvent<HTMLInputElement>) => {
     let value = e.target.value;
@@ -59,6 +58,7 @@ export default function Shop() {
 
     SetfitlteProducts(tempfilterproduct);
   };
+
   const handleAddToCart = (item: any) => {
     let CartProduct = {
       title: item.title,
@@ -74,8 +74,8 @@ export default function Shop() {
   return (
     <>
       <div className="container">
-        <div className="flex my-10 flex-wrap justify-between">
-          <div className="w-[100%] sm:w-[50%] md:w-[30%] lg:w-[20%] py-7">
+        <div className="flex my-10 flex-wrap justify-center sm:justify-between">
+          <div className="w-[90%] sm:w-[50%] md:w-[30%] lg:w-[20%] py-7">
             <div className="flex justify-between">
               <p className='font-semibold text-overlay'>Categories</p>
               <p>Reset</p>
@@ -89,10 +89,10 @@ export default function Shop() {
                       type="radio"
                       id={`flexRadioDefault${i + 1}`}
                       name="category"
-                      value={category}
+                      value={category.category}
                       onChange={updatefiltervalue}
                     />
-                    <span className='ms-2'>{category}</span>
+                    <span className='ms-2'>{category.category}</span>
                   </p>
                   <p>{category.length}</p>
                 </div>
@@ -187,34 +187,38 @@ export default function Shop() {
             </div>
             <hr />
           </div>
-          <div className="w-[100%] sm:w-[50%] md:w-[70%] lg:w-[80%] py-7">
-            <div className="flex flex-wrap mb-6 justify-center">
+          <div className="w-[90%] sm:w-[50%] md:w-[70%] lg:w-[80%] py-7">
+            <div className="flex flex-wrap mb-6 justify-center sm:justify-evenly">
+
               {fitlteProducts.map((item, i) => {
                 let { image, title, price, id } = item;
                 let name: any = title;
-                let tname: string = name.slice(0, 20) as string;
+                let tname: string = name.slice(0, 15) as string;
                 if (i < 12) {
 
                   return (
                     <div key={i} className='mb-3'>
                       <div key={i} className='mb-4'>
                         <div className="card">
-                          <div className="border-2 border-gray-300 rounded-3xl p-3 px-5 min-w-[100%]  sm:min-w-[280px]  md:min-w-[300px] lg:min-w-[330px] relative cardmain sm:mx-2">
-                            <div className="image">
-                              <span className='overlay-bg absolute right-4 top-4 lg:right-7 lg:top-5 p-2 text-center text-white w-8 h-8 flex items-center rounded-full'>
-                                <img src={images.heart} alt="" />
+                          <div className=" border-2 border-gray-300 w-[300px] rounded-3xl p-3 relative cardmain mb-2">
+                            <div className=''>
+                              <span className='overlay-bg absolute right-4 top-4 lg:right-7 lg:top-5 p-2 text-center text-white flex items-center rounded-full'>
+                                <img src={heart} alt="" />
                               </span>
-                              <img src={image} alt="Product" className='h-[200px] w-[200px] mx-auto' />
+                              <div >
+
+                                <img src={image} alt="Product" className="mx-auto h-[200px]" />
+                              </div>
                             </div>
                             <div className="content">
                               <h3 className='mb-3 text-xl font-semibold text-primary'>{tname}..</h3>
                               <p className='text-l font-semibold text-primary'>${price}</p>
                               <div className="star-icon flex mt-2">
-                                <img src={images.star} alt="" />
-                                <img src={images.star} className="ms-1" />
-                                <img src={images.star} className="ms-1" />
-                                <img src={images.star} className="ms-1" />
-                                <img src={images.star} className="ms-1" />
+                                <img src={star} alt="" />
+                                <img src={star} className="ms-1" />
+                                <img src={star} className="ms-1" />
+                                <img src={star} className="ms-1" />
+                                <img src={star} className="ms-1" />
                               </div>
                             </div>
                             <div className="overlay text-white">
@@ -223,12 +227,12 @@ export default function Shop() {
                                   <div className="flex justify-between items-center text-center cursor-pointer" onClick={() => handleAddToCart(item)}>
                                     <p className='font-medium  text-center'>Add To Cart</p>
                                     <p className="bg-warning px-2 py-1 text-center rounded-full">
-                                      <img src={images.shoppingcart} alt="" />
+                                      <img src={cart} alt="" className='w-4' />
                                     </p>
                                   </div>
                                 </div>
-                                <Link to={`/singleproduct/${id}`} className="overlay-bg flex items-center justify-center text-xl text-center rounded-2xl">
-                                  <img src={images.eye} />
+                                <Link to={`/product/${id}`} className="overlay-bg flex items-center justify-center text-xl text-center rounded-2xl">
+                                  <img src={eye} />
                                 </Link>
                               </div>
                             </div>
@@ -242,9 +246,9 @@ export default function Shop() {
             </div>
           </div>
         </div>
-        <div className="my-16">
-          <AddSection />
-        </div>
+      </div>
+      <div className="my-16">
+        <AddSection />
       </div>
 
     </>
