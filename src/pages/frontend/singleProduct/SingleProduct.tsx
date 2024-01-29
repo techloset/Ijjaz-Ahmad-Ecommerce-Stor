@@ -170,51 +170,49 @@ export default function SingleProduct() {
                     </div>
                 </div>
                 <h1 className="text-primary text-3xl font-semibold mb-5 mt-10">Related Product</h1>
-                <div className="flex flex-wrap mb-6 justify-center">
+                <div className="flex flex-wrap mb-6 justify-center sm:gap-[24px]">
                     {RelatedProduct.map((item, i) => {
                         let { image, title, price, id } = item
                         let name: any = title;
                         let tname: string = name.slice(0, 20) as string;
                         return (
-                            <div key={i} className='mb-4'>
-                                <div className="card">
-                                    <div className="border-2 border-gray-300 rounded-3xl p-3 px-5 min-w-[100%]  sm:min-w-[280px]  md:min-w-[300px] lg:min-w-[330px] relative cardmain sm:mx-2">
-                                        <div className="image">
-                                            <span className='overlay-bg absolute right-4 top-4 lg:right-7 lg:top-5 p-2 text-center text-white w-8 h-8 flex items-center rounded-full'>
-                                                <img src={heart} />
-                                            </span>
-                                            <img src={image} alt="Product" className='h-[200px] w-[200px] mx-auto' />
-                                        </div>
-                                        <div className="content">
-                                            <h3 className='mb-3 text-xl font-semibold text-primary'>{tname}...</h3>
-                                            <p className='text-l font-semibold text-primary'>${price}</p>
-                                            <div className="star-icon flex mt-2">
-                                                <img src={star} />
-                                                <img src={star} className="ms-1" />
-                                                <img src={star} className="ms-1" />
-                                                <img src={star} className="ms-1" />
-                                                <img src={star} className="ms-1" />
+                            <div key={i} className=" border-2 border-gray-300 w-[308.831px] h-[313.748px] rounded-3xl p-3 relative cardmain">
+                    <div className=''>
+                        <span className='overlay-bg absolute right-4 top-4 lg:right-7 lg:top-5 p-2 text-center text-white flex items-center rounded-full'>
+                            <img src={heart} alt="" />
+                        </span>
+                        <div >
 
-                                            </div>
-                                        </div>
-                                        <div className="overlay text-white">
-                                            <div className="grid grid-cols-3 gap-4">
-                                                <div className="col-span-2 overlay-bg p-2 rounded-2xl">
-                                                    <button className="flex justify-between items-center text-center cursor-pointer">
-                                                        <p className='font-medium ms-1 md:ms-2 text-center'>Add To Cart</p>
-                                                        <div className="bg-warning p-2 py-1 text-center ms-3 md:ms-7 rounded-full">
-                                                            <img src={cart} className="w-5" />
-                                                        </div>
-                                                    </button>
-                                                </div>
-                                                <Link to={`/singleproduct/${id}`} className="overlay-bg flex items-center justify-center text-xl p-2 text-center rounded-2xl">
-                                                    <img src={eye} />
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </div>
+                            <img src={image} alt="Product" className="mx-auto h-[173px] w-[187.856px]" />
+                        </div>
+                    </div>
+                    <div className="content mt-4">
+                        <h3 className='mb-3 text-xl font-semibold text-primary'>{tname}...</h3>
+                        <p className='text-l font-semibold text-primary'>${price}</p>
+                        <div className="gap-2 flex mt-2">
+                            <img src={star} className='w-[14.749px] h-[14.749px]' />
+                            <img src={star} className="w-[14.749px] h-[14.749px]" />
+                            <img src={star} className="w-[14.749px] h-[14.749px]" />
+                            <img src={star} className="w-[14.749px] h-[14.749px]" />
+                            <img src={star} className="w-[14.749px] h-[14.749px]" />
+                        </div>
+                    </div>
+                    <div className="overlay text-white">
+                        <div className="grid grid-cols-3 gap-4">
+                            <div className="col-span-2 overlay-bg p-3 rounded-2xl">
+                                <div className="flex justify-between items-center text-center cursor-pointer">
+                                    <p className='font-medium  text-center'>Add To Cart</p>
+                                    <p className="bg-warning px-[5px] py-1 text-center rounded-full">
+                                        <img src={cart} className='w-4' />
+                                    </p>
                                 </div>
                             </div>
+                            <Link to={`/product/${id}`} className="overlay-bg flex items-center justify-center text-xl text-center rounded-2xl">
+                                <img src={eye} />
+                            </Link>
+                        </div>
+                    </div>
+                </div>
                         );
                     })}
                 </div>

@@ -97,7 +97,9 @@ const Cart: React.FC = () => {
                 <Link to={'/cart'} className='text-[#C33131] border-2 border-[#C33131] py-3 px-8 uppercase rounded-full' onClick={deleteall}>Clear cart</Link>
               </div>
             </div>
-            <div className="w-[100%]  lg:w-[29%] border-2">
+            <div className="w-[100%]  lg:w-[29%] ">
+              <div className="border-2">
+
               <h2 className='text-xs text-gray-700 uppercase bg-footer mb-0 text-center  font-bold py-3'>Cart Total</h2>
 
 
@@ -122,6 +124,7 @@ const Cart: React.FC = () => {
                     Proceed to ckeckout
                   </Link>
               </form>
+              </div>
 
             </div>
           </div>

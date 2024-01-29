@@ -36,11 +36,6 @@ export default function SecBar() {
                   </Link>
                 </li>
                 <li className='mx-3'>
-                  <Link to={'/shop'}>
-                    Shop
-                  </Link>
-                </li>
-                <li className='mx-3'>
                   <Link to={'/about'}>
                     About us
                   </Link>

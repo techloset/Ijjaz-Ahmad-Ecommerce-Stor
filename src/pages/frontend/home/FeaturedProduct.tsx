@@ -18,16 +18,14 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 export default function FeaturedProduct() {
-  
+
   return (
     <>
-      <div className="container">
-        <div className="hidden md-2:block my-5">
-          <div className="flex flex-wrap gap-7">
-            <div className='flex-auto w-72'>
-
+      <div className="container mx-auto">
+        <div className="hidden md-2:block">
+          <div className="flex flex-wrap my-5 justify-center">
+            <div className='w-[100%] lg:w-[60%]'>
               <Swiper
-
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={20}
                 pagination={{ clickable: true }}
@@ -43,13 +41,10 @@ export default function FeaturedProduct() {
               </Swiper>
             </div>
 
-            <div className='flex-auto w-16 '>
-              <div className='min-h-2/5'>
-                <Card />
-              </div>
-              <div className='min-h-2/5'>
-                <Card />
-              </div>
+
+            <div className="w-[100%] lg:w-[40%]">
+              <Card />
+              <Card />
             </div>
           </div>
         </div>

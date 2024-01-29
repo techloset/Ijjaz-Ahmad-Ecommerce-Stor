@@ -1,29 +1,26 @@
 import React from 'react';
-import logo from "../assets/images/Product/headphone.png";
+import logo from "../assets/images/Product/feathuer.png";
 import star from "../assets/icons/star.svg";
 
 export default function Card() {
   return (
-    <>
-      <div className="card">
-        <div className="border-2 border-gray-300 rounded-3xl  mb-3 relative cardmain flex items-center pe-2 pb-2">
-          <div className="image">
+    <>      
+        <div className="border-2 overflow-hidden mb-5 border-gray-300 max-w-[493p h-[241px] rounded-3xl relative flex justify-center items-center px-5">
+          <div className="w-[50%]">
             <img src={logo} alt="Product" className="w-64" />
           </div>
-          <div className="content-1">
-            <h3 className='mb-3 text-xl font-semibold text-primary'>Play Game</h3>
-            <p className='text-l font-semibold text-primary'>$11.5</p>
-            <div className="star-icon flex mt-2">
-              <img src={star} />
+          <div className="w-[50%]">
+            <h3 className='text-xl font-semibold text-primary'>JBL bar 2.1 deep bass</h3>
+            <p className='text-lg font-semibold text-[#A4A4A4] my-5'>$11.5</p>
+            <div className="star-icon flex">
               <img src={star} className="ms-1" />
               <img src={star} className="ms-1" />
               <img src={star} className="ms-1" />
               <img src={star} className="ms-1" />
-              
+              <img src={star} className="ms-1" />
             </div>
           </div>
         </div>
-      </div>
     </>
   );
 }

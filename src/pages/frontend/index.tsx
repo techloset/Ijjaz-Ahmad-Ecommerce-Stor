@@ -9,7 +9,7 @@ export default function index() {
     <>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/shop' element={<Shop />} />
+        <Route path='/catalog' element={<Shop />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/product/:id' element={<SingleProduct />} />
       </Routes>

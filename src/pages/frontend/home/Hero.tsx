@@ -1,6 +1,9 @@
 import React from 'react'
 import HeroCard from '../../../components/HeroCard'
 import hero from '../../../assets/images/hero.png'
+import logo1 from '../../../assets/images/Product/logo1.png'
+import logo2 from '../../../assets/images/Product/logo2.png'
+import logo3 from '../../../assets/images/Product/logo3.png'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -13,12 +16,13 @@ import 'swiper/css/scrollbar';
 export default function Hero() {
     return (
         <>
-            <div className=" hero container mb-5">
+            <div className="hero container">
+
                 <Swiper
 
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
                     spaceBetween={20}
-                  
+
                     pagination={{ clickable: true }}
                     loop={true}
                 >
@@ -32,7 +36,17 @@ export default function Hero() {
                                 </div>
                             </div>
                             <div className="img">
-                                <img src={hero} alt="" />
+                                <img src={hero} alt="" className='relative' />
+
+
+                                <div className='bg-warning py-5 absolute top-[250px] right-[210px] rounded-full w-[90px] font-medium text-center text-white'>
+                                    <span>
+                                        only
+                                        <br />
+                                        $89
+                                    </span>
+                                </div>
+
                             </div>
                         </div>
                     </SwiperSlide>
@@ -46,7 +60,17 @@ export default function Hero() {
                                 </div>
                             </div>
                             <div className="img">
-                                <img src={hero} alt="" />
+                                <img src={hero} alt="" className='relative' />
+
+
+                                <div className='bg-warning py-5 absolute top-[250px] right-[210px] rounded-full w-[90px] font-medium text-center text-white'>
+                                    <span>
+                                        only
+                                        <br />
+                                        $89
+                                    </span>
+                                </div>
+
                             </div>
                         </div>
                     </SwiperSlide>
@@ -60,16 +84,27 @@ export default function Hero() {
                                 </div>
                             </div>
                             <div className="img">
-                                <img src={hero} alt="" />
+                                <img src={hero} alt="" className='relative' />
+
+
+                                <div className='bg-warning py-5 absolute top-[250px] right-[210px] rounded-full w-[90px] font-medium text-center text-white'>
+                                    <span>
+                                        only
+                                        <br />
+                                        $89
+                                    </span>
+                                </div>
+
                             </div>
                         </div>
                     </SwiperSlide>
 
                 </Swiper>
+
+
                 <Swiper
 
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
-                    spaceBetween={20}
                     navigation
                     loop={true}
                     breakpoints={{
@@ -87,12 +122,15 @@ export default function Hero() {
                         },
                     }}
                 >
-                    <SwiperSlide> <HeroCard /></SwiperSlide>
-                    <SwiperSlide> <HeroCard /></SwiperSlide>
-                    <SwiperSlide> <HeroCard /></SwiperSlide>
-                    <SwiperSlide> <HeroCard /></SwiperSlide>
+                    <SwiperSlide> <HeroCard img={logo1} title='Speaker' /></SwiperSlide>
+                    <SwiperSlide> <HeroCard img={logo2} title='Desktop & laptop' /></SwiperSlide>
+                    <SwiperSlide> <HeroCard img={logo3} title='DSLR camera' /></SwiperSlide>
+                    <SwiperSlide> <HeroCard img={logo1} title='Speaker' /></SwiperSlide>
+                    <SwiperSlide> <HeroCard img={logo2} title='Desktop & laptop' /></SwiperSlide>
+                    <SwiperSlide> <HeroCard img={logo3} title='DSLR camera' /></SwiperSlide>
 
                 </Swiper>
+
 
             </div>
         </>
