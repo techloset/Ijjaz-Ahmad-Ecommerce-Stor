@@ -9,7 +9,7 @@ export default function TopBar() {
         <div className="container">
           <nav className="text-center lightBlack md:flex items-center justify-between py-4">
             <div>
-              <p className='text-sm'>Need help? Call us: (+98) 0234 456 789</p>
+              <p className='text-[14px]'>Need help? Call us: (+98) 0234 456 789</p>
             </div>
             <div className="flex justify-center my-2">
               <div className="flex items-center mx-2">

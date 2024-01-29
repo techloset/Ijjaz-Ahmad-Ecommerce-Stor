@@ -7,7 +7,7 @@ type typeProps = { detail: ReactNode }
 
 export default function ProCard(props: typeProps) {
     const { detail } = props
-    // console.log(detail);
+    console.log(detail);
 
     return (
         // <div className=" border-2 border-gray-300 w-[330px] rounded-3xl p-3 relative cardmain mb-2">

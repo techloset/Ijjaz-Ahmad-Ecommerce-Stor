@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,6 +7,7 @@ import eye from '../../../assets/icons/eye.svg';
 import cart from '../../../assets/icons/shopping-cart.svg';
 import star from '../../../assets/icons/star.svg';
 import heart from '../../../assets/icons/heart.svg';
+import ProCard from '../../../components/ProCard';
 
 interface ProductType {
     title: string;
@@ -15,6 +16,7 @@ interface ProductType {
     description: string;
     id: number;
     category: string;
+    item: ReactNode;
 }
 
 interface RootState {
@@ -57,11 +59,11 @@ export default function Product() {
                             >Clothing</button>
                         </div>
                         <div className='hidden sm:block'>
-                            <button className="text-cyan-800 text-base font-medium rounded-[20px] px-14 py-2 border border-zinc-400 justify-center items-center"
+                            <button className="text-cyan-800 text-base font-medium rounded-[20px] px-10 py-2 border border-zinc-400 justify-center items-center"
                             >jewelery</button>
                         </div>
                         <div className='hidden sm:block'>
-                            <button className="text-cyan-800 text-base font-medium rounded-[20px] px-14 py-2 border border-zinc-400 justify-center items-center"
+                            <button className="text-cyan-800 text-base font-medium rounded-[20px] px-10 py-2 border border-zinc-400 justify-center items-center"
                             >electron</button>
                         </div>
                     </div>
@@ -69,13 +71,14 @@ export default function Product() {
             </div>
 
             <div className="flex mt-10 flex-wrap mb-6 justify-center gap-[31px]">
-                {/* {products.map((item: ProductType, i) => {
-                    
+                {products.map((item: ProductType, i) => {
+
                     if (i < 8) {
-                        console.log("🚀 ~ {products.map ~ item:", item)
                         return <ProCard detail={item.item} />
-                    } */}
-                {/* })} */}
+                    }
+                }
+                )}
+                 
                 {products.map((item: ProductType, i) => {
                     let name = item.title.slice(0, 15)
                     if (i < 8) {

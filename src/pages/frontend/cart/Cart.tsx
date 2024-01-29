@@ -91,7 +91,7 @@ const Cart: React.FC = () => {
                 </table>
               </div>
               <div className="flex flex-wrap justify-center mb-5 sm:justify-between items-center font-medium">
-                <Link to={'/shop'} className='bg-warning text-white py-3 px-8 uppercase rounded-full'>Continue shopping</Link>
+                <Link to={'/catalog'} className='bg-warning text-white py-3 px-8 uppercase rounded-full'>Continue shopping</Link>
 
                 <Link to={'#'} className='border-gray-400 border-2 my-5 sm:my-0 text-gray-400 py-3 px-8 uppercase rounded-full'>Update Cart</Link>
                 <Link to={'/cart'} className='text-[#C33131] border-2 border-[#C33131] py-3 px-8 uppercase rounded-full' onClick={deleteall}>Clear cart</Link>
@@ -137,7 +137,7 @@ const Cart: React.FC = () => {
               <span className='text-warning sm:text-[50px]'> Cart</span>
             </h1>
             <div className='sm:text-left text-center my-4'>
-              <Link to={'/shop'} className='bg-warning text-white py-3 px-8 uppercase rounded-full'>Continue shopping</Link>
+              <Link to={'/catalog'} className='bg-warning text-white py-3 px-8 uppercase rounded-full'>Continue shopping</Link>
             </div>
           </>
         )}

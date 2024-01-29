@@ -1,5 +1,7 @@
 import React from 'react'
 import BlogCard from '../../../components/BlogCard'
+import blog1 from '../../../assets/images/blog1.png'
+import blog2 from '../../../assets/images/blog2.png'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -43,11 +45,12 @@ export default function Blog() {
                             },
                         }}
                     >
-                        <SwiperSlide> <BlogCard /></SwiperSlide>
-                        <SwiperSlide> <BlogCard /></SwiperSlide>
-                        <SwiperSlide> <BlogCard /></SwiperSlide>
-                        <SwiperSlide> <BlogCard /></SwiperSlide>
-                        <SwiperSlide> <BlogCard /></SwiperSlide>
+                        <SwiperSlide> <BlogCard img={blog1} /></SwiperSlide>
+                        <SwiperSlide> <BlogCard img={blog2} /></SwiperSlide>
+                        <SwiperSlide> <BlogCard img={blog1} /></SwiperSlide>
+                        <SwiperSlide> <BlogCard img={blog2} /></SwiperSlide>
+                        <SwiperSlide> <BlogCard img={blog1} /></SwiperSlide>
+                        <SwiperSlide> <BlogCard img={blog2} /></SwiperSlide>
                     </Swiper>
 
                 </div>

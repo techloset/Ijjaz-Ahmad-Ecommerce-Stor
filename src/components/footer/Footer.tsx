@@ -10,7 +10,7 @@ export default function Footer() {
         <>
             <div className="bg-footer p-3 pt-10">
                 <div className="container">
-                    <div className="bg-white py-6 rounded-xl flex flex-wrap items-center justify-around ">
+                    <div className="bg-white py-6 rounded-xl flex flex-wrap items-center justify-around">
                         <div>
                             <p className='text-primary text-center sm:text-center font-extrabold text-[20px] sm:text-[26px] md:text-3xl lg:text-4xl'>Subscribe NewSletter</p>
                         </div>
@@ -30,12 +30,12 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    <div className="flex flex-wrap justify-between mt-5 px-9 sm:px-0">
+                    <div className="flex flex-wrap justify-between mt-[41px] px-9 sm:px-0">
                         <div className='mb-3'>
                             <img src={logo} className="mb-6" />
                             <p className='text-primary mb-3 font-medium'>64 st james boulevard <br />
                                 hoswick , ze2 7zj</p>
-                            <div className="flex border-t-2 border-slate-950 p-2">
+                            <div className="flex border-t-2 border-slate-950 gap-5 p-2">
                                     <img src={google} alt="" />
                                     <img src={facebook} alt="" />
                                     <img src={whatapp} alt="" />

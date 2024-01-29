@@ -58,11 +58,11 @@ export default function Client() {
                 </Swiper>
                 <div className="bg-footer py-6">
                     <div className="flex flex-wrap gap-5 items-center justify-evenly">
-                        <img src={logo1} className="w-40 md:w-[115px]" />
-                        <img src={logo2} className="w-40 md:w-[115px]" />
-                        <img src={logo3} className="w-40 md:w-[115px]" />
-                        <img src={logo4} className="w-40 md:w-[115px]" />
-                        <img src={logo5} className="w-40 md:w-[115px]" />
+                        <img src={logo1} className="max-w-[204px] h-[41px]" />
+                        <img src={logo2} className="max-w-[204px] h-[41px]" />
+                        <img src={logo3} className="max-w-[204px] h-[41px]" />
+                        <img src={logo4} className="max-w-[204px] h-[41px]" />
+                        <img src={logo5} className="max-w-[204px] h-[41px]" />
                     </div>
                 </div>
             </div>
