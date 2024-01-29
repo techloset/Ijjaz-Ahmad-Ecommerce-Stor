@@ -6,7 +6,7 @@ type typePro = {
 export default function BlogCard(props: typePro) {
   return (
     <>
-      <div className="card my-10">
+      <div className="my-10">
         <div className="border-2 px-5 border-gray-300 rounded-3xl flex mx-w-[650px] h-[375px] flex-wrap items-center justify-between overflow-hidden">
           <div className="w-[43%] flex items-center justify-center">
             <img src={props.img} className='w-[320px] h-[274px]' />

@@ -28,7 +28,7 @@ const Cart: React.FC = () => {
 
   return (
     <>
-      <div className="container mx-auto my-8">
+      <div className="container mx-auto mb-[96px] mt-[31px]">
         {cart.length ? (
           <div className="flex flex-wrap justify-evenly">
             <div className="w-[100%]  lg:w-[69%]">
@@ -107,12 +107,12 @@ const Cart: React.FC = () => {
                 <div className="flex flex-wrap justify-between py-3 border-b-2 font-medium">
                   <span>SubTotal</span> <span>$457674</span>
                 </div>
-                <div className="flex justify-between border-2 rounded-2xl mt-4 items-center ">
+                <div className="flex justify-between border-2 rounded-2xl my-[33px] items-center ">
                   <input type='email' className="w-9/12 outline-none ps-3  text-gray-400" placeholder='Enter coupon' />
                   <button className="text-sm text-primary p-3">Apply</button>
                 </div>
-                <span className='border-b-2  my-4'></span>
-                <div className="flex justify-between border-2  items-center rounded-2xl">
+                <span className='border-b-2'></span>
+                <div className="flex justify-between border-2  my-[33px] items-center rounded-2xl">
                   <input className="outline-none ps-3 w-9/12 text-gray-400" placeholder='County' />
                   <button className=" text-end font-semibold text-primary p-2"><img src={arrrow} alt="" /></button>
                 </div>
@@ -120,7 +120,7 @@ const Cart: React.FC = () => {
                 <div className="flex flex-wrap justify-between py-3">
                   <span>Total Amount</span> <span>$457674</span>
                 </div>
-                  <Link to={'/'} className='bg-warning text-white py-2 px-3 text-center uppercase rounded-full'>
+                  <Link to={'/'} className='bg-warning text-white py-3 text-center uppercase rounded-full'>
                     Proceed to ckeckout
                   </Link>
               </form>

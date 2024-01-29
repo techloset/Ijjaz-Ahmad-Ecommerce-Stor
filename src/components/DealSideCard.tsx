@@ -6,7 +6,7 @@ import cart from '../assets/icons/shopping-cart.svg'
 export default function DealSildCard() {
     return (
         <>
-            <div className="border-2 border-gray-300 rounded-3xl flex justify-center items-center px-[20px] gap-[62px] max-w-[803px] h-[505px]">
+            <div className="border-2 border-gray-300 rounded-3xl flex justify-center items-center px-[20px] max-w-[803px] h-[505px]">
                 <div className='w-[50%] flex items-center justify-center'>
                     <img src={logo} alt="Product" className='w-50' />
                 </div>

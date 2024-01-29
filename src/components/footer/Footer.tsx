@@ -10,35 +10,36 @@ export default function Footer() {
         <>
             <div className="bg-footer p-3 pt-10">
                 <div className="container">
-                    <div className="bg-white py-6 rounded-xl flex flex-wrap items-center justify-around">
+                    <div className="bg-white py-6 rounded-xl flex flex-wrap items-center gap-[137px] justify-center">
                         <div>
-                            <p className='text-primary text-center sm:text-center font-extrabold text-[20px] sm:text-[26px] md:text-3xl lg:text-4xl'>Subscribe NewSletter</p>
+                                <p className='text-primary text-center font-extrabold text-[24px] lg:text-[29.38px]'>Subscribe NewSletter</p>
                         </div>
-                        <form className="flex items-center my-3">
-                            <div>
-                                <input type='email' className="outline-none ps-3 py-2 bg-warning rounded-s-xl text-white" placeholder='Email address' />
+                        <div className="flex gap-x-[88px]">
+                            <form className="flex items-center my-3">
+                                <div>
+                                    <input type='email' className="outline-none ps-3 py-2 bg-warning rounded-s-xl text-white" placeholder='Email address' />
+                                </div>
+                                <div>
+                                    <button className="rounded-e-xl bg-warning pe-3 py-2  font-semibold text-white ">
+                                        <img src={send} alt="" />
+                                    </button>
+                                </div>
+                            </form>
+                            <div className="flex justify-center text-center">
+                                <img src={logo1} />
+                                <p className='text-left ms-3 text-[13px]'>Call us 24/7 : <br />(+62) 0123 567 789</p>
                             </div>
-                            <div>
-                                <button className="rounded-e-xl bg-warning pe-3 py-2  font-semibold text-white ">
-                                    <img src={send} alt="" />
-                                </button>
-                            </div>
-                        </form>
-                        <div className="flex justify-center text-center">
-                            <img src={logo1} />
-                            <p className='text-left ms-3 text-[13px]'>Call us 24/7 : <br />(+62) 0123 567 789</p>
                         </div>
                     </div>
-
                     <div className="flex flex-wrap justify-between mt-[41px] px-9 sm:px-0">
                         <div className='mb-3'>
                             <img src={logo} className="mb-6" />
                             <p className='text-primary mb-3 font-medium'>64 st james boulevard <br />
                                 hoswick , ze2 7zj</p>
                             <div className="flex border-t-2 border-slate-950 gap-5 p-2">
-                                    <img src={google} alt="" />
-                                    <img src={facebook} alt="" />
-                                    <img src={whatapp} alt="" />
+                                <img src={google} alt="" />
+                                <img src={facebook} alt="" />
+                                <img src={whatapp} alt="" />
                             </div>
                         </div>
                         <div className='mb-3'>

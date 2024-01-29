@@ -14,7 +14,7 @@ import 'swiper/css/scrollbar';
 export default function Blog() {
     return (
         <>
-            <div className="container my-5">
+            <div className="container">
                 <div className="flex flex-wrap justify-between items-center">
                     <div>
                         <p className='text-[25px] font-semibold text-primary'>Latest news</p>
@@ -23,7 +23,7 @@ export default function Blog() {
                         <p className='text-xl font-semibold text-primary'>View all</p>
                     </div>
                 </div>
-                <div>
+                <div className='mb-[100px]'>
                     <Swiper
                         className='showpagination'
                         modules={[Navigation, Pagination, Scrollbar, A11y]}

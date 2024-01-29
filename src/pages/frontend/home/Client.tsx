@@ -23,7 +23,6 @@ export default function Client() {
         <>
             <div className="container">
                 <Swiper
-                    className='my-5'
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
                     spaceBetween={20}
                     pagination={{ clickable: true }}
@@ -56,7 +55,7 @@ export default function Client() {
                         <ClientCard title={'Esther Howard'} img={clients2} />
                     </SwiperSlide>
                 </Swiper>
-                <div className="bg-footer py-6">
+                <div className="bg-footer py-6 mt-4 mb-[100px]">
                     <div className="flex flex-wrap gap-5 items-center justify-evenly">
                         <img src={logo1} className="max-w-[204px] h-[41px]" />
                         <img src={logo2} className="max-w-[204px] h-[41px]" />
