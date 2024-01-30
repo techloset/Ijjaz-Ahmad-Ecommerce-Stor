@@ -13,6 +13,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import HeroSlideCard from '../../../components/HeroSlideCard'
 export default function Hero() {
     return (
         <>
@@ -27,76 +28,13 @@ export default function Hero() {
                     loop={true}
                 >
                     <SwiperSlide>
-                        <div className="flex flex-wrap-reverse justify-around my-10 items-center">
-                            <div className="text">
-                                <h1 className='text-[43px] text-center sm:text-left font-[700] text-primary md:w-20'>Canon camera</h1>
-                                <div className="flex flex-wrap md:gap-3 my-5">
-                                    <button className="bg-warning w-full sm:w-[144px] py-4 my-3 sm:my-0 text-white rounded-2xl">Shop now</button>
-                                    <button className="py-4 w-full sm:w-[144px] border-2 border-[#316887] text-primary rounded-2xl">View more</button>
-                                </div>
-                            </div>
-                            <div className="img">
-                                <img src={hero} alt="" className='relative' />
-
-
-                                <div className='bg-warning w-[120px] h-[114.61px] flex justify-center items-center absolute top-[250px] right-[210px] rounded-full font-medium text-white text-[21.57px]'>
-                                    <span>
-                                        only
-                                        <br />
-                                        $89
-                                    </span>
-                                </div>
-
-                            </div>
-                        </div>
+                        <HeroSlideCard />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="flex flex-wrap-reverse md:justify-around my-10 items-center">
-                            <div className="text">
-                                <h1 className='text-[43px] text-center sm:text-left font-[700] text-primary md:w-20'>Canon camera</h1>
-                                <div className="flex flex-wrap md:gap-3 my-5">
-                                    <button className="bg-warning w-full sm:w-[144px] py-4 my-3 sm:my-0 text-white rounded-2xl">Shop now</button>
-                                    <button className="py-4 w-full sm:w-[144px] border-2 border-[#316887] text-primary rounded-2xl">View more</button>
-                                </div>
-                            </div>
-                            <div className="img">
-                                <img src={hero} alt="" className='relative' />
-
-
-                                <div className='bg-warning py-5 absolute top-[250px] right-[210px] rounded-full w-[90px] font-medium text-center text-white'>
-                                    <span>
-                                        only
-                                        <br />
-                                        $89
-                                    </span>
-                                </div>
-
-                            </div>
-                        </div>
+                        <HeroSlideCard />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="flex flex-wrap-reverse md:justify-around my-10 items-center">
-                            <div className="text">
-                                <h1 className='text-[43px] text-center sm:text-left font-[700] text-primary md:w-20'>Canon camera</h1>
-                                <div className="flex flex-wrap md:gap-3 my-5">
-                                    <button className="bg-warning w-full sm:w-[144px] py-4 my-3 sm:my-0 text-white rounded-2xl">Shop now</button>
-                                    <button className="py-4 w-full sm:w-[144px] border-2 border-[#316887] text-primary rounded-2xl">View more</button>
-                                </div>
-                            </div>
-                            <div className="img">
-                                <img src={hero} alt="" className='relative' />
-
-
-                                <div className='bg-warning py-5 absolute top-[250px] right-[210px] rounded-full w-[90px] font-medium text-center text-white'>
-                                    <span>
-                                        only
-                                        <br />
-                                        $89
-                                    </span>
-                                </div>
-
-                            </div>
-                        </div>
+                        <HeroSlideCard />
                     </SwiperSlide>
 
                 </Swiper>
