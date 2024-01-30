@@ -23,8 +23,8 @@ export default function FeaturedProduct() {
     <>
       <div className="container mx-auto">
         <div className="hidden md-2:block">
-          <div className="flex flex-wrap my-[95px] justify-center">
-            <div className='w-[100%] lg:w-[58%]'>
+          <div className="flex flex-wrap my-[95px] justify-center gap-[32px]">
+            <div className='w-[100%] lg:w-[60%]'>
               <Swiper
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={20}
@@ -41,7 +41,7 @@ export default function FeaturedProduct() {
               </Swiper>
             </div>
 
-            <div className="w-[100%] lg:w-[38%]">
+            <div className="w-[100%] lg:w-[37%]">
               <Card />
               <Card />
             </div>

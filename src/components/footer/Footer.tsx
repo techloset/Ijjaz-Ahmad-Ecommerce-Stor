@@ -10,11 +10,11 @@ export default function Footer() {
         <>
             <div className="bg-footer p-3 pt-10">
                 <div className="container">
-                    <div className="bg-white py-6 rounded-xl flex flex-wrap items-center gap-[137px] justify-center">
+                    <div className="bg-white py-6 rounded-xl flex flex-wrap justify-center items-center gap-x-[137px]">
                         <div>
-                                <p className='text-primary text-center font-extrabold text-[24px] lg:text-[29.38px]'>Subscribe NewSletter</p>
+                            <p className='text-primary text-center font-bold text-[24px] lg:text-[29.38px]'>Subscribe NewSletter</p>
                         </div>
-                        <div className="flex gap-x-[88px]">
+                        <div className="flex flex-wrap justify-center gap-x-[88px]">
                             <form className="flex items-center my-3">
                                 <div>
                                     <input type='email' className="outline-none ps-3 py-2 bg-warning rounded-s-xl text-white" placeholder='Email address' />
@@ -31,7 +31,7 @@ export default function Footer() {
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-wrap justify-between mt-[41px] px-9 sm:px-0">
+                    <div className="flex flex-wrap gap-[80px] mt-[41px] px-9 sm:px-0">
                         <div className='mb-3'>
                             <img src={logo} className="mb-6" />
                             <p className='text-primary mb-3 font-medium'>64 st james boulevard <br />
@@ -42,35 +42,37 @@ export default function Footer() {
                                 <img src={whatapp} alt="" />
                             </div>
                         </div>
-                        <div className='mb-3'>
-                            <p className='text-primary text-lg mb-3 font-bold'>Find product</p>
-                            <ul>
-                                <p className='list-disc text-gray-300'><span className='text-primary'>Brownze arnold</span></p>
-                                <p className='list-disc  text-gray-300'><span className='text-primary'>Chronograph blue</span></p>
-                                <p className='list-disc text-gray-300'><span className="text-primary">Smart phones</span></p>
-                                <p className='list-disc text-gray-300'><span className="text-primary">Automatic watch</span></p>
-                                <p className='list-disc text-gray-300'><span className="text-primary">Hair straighteners</span></p>
-                            </ul>
-                        </div>
-                        <div className='mb-3'>
-                            <p className='text-primary text-lg  mb-3 font-bold'>Get help</p>
-                            <ul>
-                                <p className='list-disc text-gray-300'><span className="text-primary">About us</span></p>
-                                <p className='list-disc text-gray-300'><span className="text-primary">Contact us</span></p>
-                                <p className='list-disc text-gray-300'><span className="text-primary">Return policy</span></p>
-                                <p className='list-disc text-gray-300'><span className="text-primary">Privacy policy</span></p>
-                                <p className='list-disc text-gray-300'><span className="text-primary">Payment policy</span></p>
-                            </ul>
-                        </div>
-                        <div >
-                            <p className='text-primary text-lg mb-3 font-bold'>About us</p>
-                            <ul>
-                                <p className='list-disc text-gray-300'><span className="text-primary">News</span></p>
-                                <p className='list-disc text-gray-300'><span className="text-primary">Service</span></p>
-                                <p className='list-disc text-gray-300'><span className="text-primary">Our policy</span></p>
-                                <p className='list-disc text-gray-300'><span className="text-primary">Custmer care</span></p>
-                                <p className='list-disc text-gray-300'><span className="text-primary">Faq’s</span></p>
-                            </ul>
+                        <div className="flex flex-wrap gap-y-[30px] sm:gap-[227px]">
+                            <div className='mb-3 w-[201]'>
+                                <p className='text-primary text-lg mb-3 font-bold'>Find product</p>
+                                <ul>
+                                    <p className='list-disc text-gray-300'><span className='text-primary'>Brownze arnold</span></p>
+                                    <p className='list-disc my-[10px]  text-gray-300'><span className='text-primary'>Chronograph blue</span></p>
+                                    <p className='list-disc text-gray-300'><span className="text-primary">Smart phones</span></p>
+                                    <p className='list-disc my-[10px] text-gray-300'><span className="text-primary">Automatic watch</span></p>
+                                    <p className='list-disc text-gray-300'><span className="text-primary">Hair straighteners</span></p>
+                                </ul>
+                            </div>
+                            <div className='mb-3 w-[172]'>
+                                <p className='text-primary text-lg  mb-3 font-bold'>Get help</p>
+                                <ul>
+                                    <p className='list-disc text-gray-300'><span className="text-primary">About us</span></p>
+                                    <p className='list-disc my-[10px] text-gray-300'><span className="text-primary">Contact us</span></p>
+                                    <p className='list-disc text-gray-300'><span className="text-primary">Return policy</span></p>
+                                    <p className='list-disc my-[10px] text-gray-300'><span className="text-primary">Privacy policy</span></p>
+                                    <p className='list-disc text-gray-300'><span className="text-primary">Payment policy</span></p>
+                                </ul>
+                            </div>
+                            <div className='mb-3 w-[156]'>
+                                <p className='text-primary text-lg mb-3 font-bold'>About us</p>
+                                <ul>
+                                    <p className='list-disc text-gray-300'><span className="text-primary">News</span></p>
+                                    <p className='list-disc my-[10px] text-gray-300'><span className="text-primary">Service</span></p>
+                                    <p className='list-disc text-gray-300'><span className="text-primary">Our policy</span></p>
+                                    <p className='list-disc my-[10px] text-gray-300'><span className="text-primary">Custmer care</span></p>
+                                    <p className='list-disc text-gray-300'><span className="text-primary">Faq’s</span></p>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

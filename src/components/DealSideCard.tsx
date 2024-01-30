@@ -6,11 +6,11 @@ import cart from '../assets/icons/shopping-cart.svg'
 export default function DealSildCard() {
     return (
         <>
-            <div className="border-2 border-gray-300 rounded-3xl flex justify-center items-center px-[20px] max-w-[803px] h-[505px]">
-                <div className='w-[50%] flex items-center justify-center'>
-                    <img src={logo} alt="Product" className='w-50' />
+            <div className="border-2 border-gray-300 rounded-3xl flex justify-center items-center max-w-[803px] h-[505px]">
+                <div className='w-[45%] flex items-center justify-center'>
+                    <img src={logo} alt="Product" />
                 </div>
-                <div className="w-[50%]">
+                <div className="w-[50%] me-[2%]">
                     <div className="text">
                         <h3 className='text-xl font-semibold text-primary'>JBL bar 2.1 deep bass</h3>
                         <p className='text-lg font-semibold text-[#A4A4A4] my-5'>$11.5</p>

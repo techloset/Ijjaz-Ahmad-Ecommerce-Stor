@@ -39,7 +39,7 @@ export default function Hero() {
                                 <img src={hero} alt="" className='relative' />
 
 
-                                <div className='bg-warning py-5 absolute top-[250px] right-[210px] rounded-full w-[90px] font-medium text-center text-white'>
+                                <div className='bg-warning w-[120px] h-[114.61px] flex justify-center items-center absolute top-[250px] right-[210px] rounded-full font-medium text-white text-[21.57px]'>
                                     <span>
                                         only
                                         <br />
