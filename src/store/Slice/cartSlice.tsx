@@ -1,17 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { CartItem, CartState } from "../../constant/AllTypes";
 
-interface CartProduct {
-  id: number;
-}
-
-interface CartState {
-  cart: CartProduct[];
-  total_amount: number,
-  amount: number,
-  total_price: number,
-}
-
-const getLocalCartData = (): CartProduct[] => {
+const getLocalCartData = (): CartItem[] => {
   let localCartData = localStorage.getItem("cartProduct");
 
   if (!localCartData || JSON.parse(localCartData).length === 0) {
@@ -30,7 +20,7 @@ const cartSlice = createSlice({
     total_price: 0,
   } as CartState,
   reducers: {
-    addproduct: (state, action: PayloadAction<CartProduct>) => {
+    addproduct: (state, action: PayloadAction<CartItem>) => {
       state.cart.push(action.payload);
       localStorage.setItem("cartProduct", JSON.stringify(state.cart));
     },

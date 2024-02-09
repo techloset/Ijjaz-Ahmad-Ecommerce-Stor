@@ -1,13 +1,9 @@
 import React from 'react'
-type Props = {
-  title: string,
-  img: string,
-  des: string,
-}
-export default function DealCard(Props: Props) {
+import { DealCardProps } from '../constant/AllTypes'
+
+export default function DealCard(Props: DealCardProps) {
   return (
-    <>
-      <div className="flex ">
+      <div className="flex">
         <div>
           <img src={Props.img} className='w-[67px] h-[67px]'/>
         </div>
@@ -16,6 +12,5 @@ export default function DealCard(Props: Props) {
           <span className='text-[18px]'>{Props.des}</span>
         </div>
       </div>
-    </>
   )
 }

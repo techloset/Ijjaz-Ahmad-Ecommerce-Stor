@@ -1,8 +1,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import productReducer from "./Sclice/ProductSclice";
-import cartReducer from "./Sclice/cartSlice";
-import singleProductReducer from "./Sclice/singleProductSlice";
-import { useDispatch } from "react-redux";
+import productReducer from "./Slice/ProductSclice";
+import cartReducer from "./Slice/cartSlice";
+import singleProductReducer from "./Slice/singleProductSlice";
 
 const rootReducer = combineReducers({
     redux: productReducer,

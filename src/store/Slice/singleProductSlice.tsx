@@ -1,12 +1,22 @@
 import axios from "axios";
 import { createSlice, PayloadAction, ThunkAction } from "@reduxjs/toolkit";
-import { RootState } from "../Store"; 
+import { RootState } from "../Store";
+import { SingleState } from "../../constant/AllTypes";
+import { productInstance } from "../../utilities/axiosInstance/AxiosInstance";
 
-interface SingleProductState {
-  singleProduct: Record<string, any>; 
-  loading: boolean;
-  error: string | null;
-}
+export const FetchSingleProduct = (
+  productId: string
+): ThunkAction<void, RootState, unknown, any> => async (dispatch) => {
+  try {
+    dispatch(fetchSingleProductStart());
+    const response = await productInstance.get(`/products/${productId}`);
+    const data = response.data;
+    dispatch(fetchSingleProductSuccess(data));
+  } catch (error) {
+    dispatch(fetchSingleProductError('error.message'));
+  }
+};
+
 
 const singleProductSlice = createSlice({
   name: "singleProduct",
@@ -14,7 +24,7 @@ const singleProductSlice = createSlice({
     singleProduct: {},
     loading: false,
     error: null,
-  } as SingleProductState,
+  } as SingleState,
   reducers: {
     fetchSingleProductStart(state) {
       state.loading = true;
@@ -37,17 +47,5 @@ export const {
   fetchSingleProductError,
 } = singleProductSlice.actions;
 
-export const FetchSingleProduct = (
-  productId: string
-): ThunkAction<void, RootState, unknown, any> => async (dispatch) => {
-  try {
-    dispatch(fetchSingleProductStart());
-    const response = await axios.get(`https://fakestoreapi.com/products/${productId}`);
-    const data = response.data;
-    dispatch(fetchSingleProductSuccess(data));
-  } catch (error) {
-    dispatch(fetchSingleProductError('error.message'));
-  }
-};
 
 export default singleProductSlice.reducer;

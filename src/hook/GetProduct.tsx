@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { FetchProduct } from '../redux/Sclice/ProductSclice';
+import { FetchProduct } from '../store/Slice/ProductSclice';
 
 const GetProduct = createContext({});
 
@@ -8,7 +8,7 @@ export default function GetProductProvider(props: { children: React.ReactNode })
   const dispatch = useDispatch();
 
   useEffect(() => {
-   
+
     dispatch(FetchProduct() as any);
   }, []);
 

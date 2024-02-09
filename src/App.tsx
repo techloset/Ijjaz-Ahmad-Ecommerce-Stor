@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Header />
-      <main>
+      <main className='flex,flex-col min-h-[70vh]'>
         <Routes />
       </main>
       <Footer />

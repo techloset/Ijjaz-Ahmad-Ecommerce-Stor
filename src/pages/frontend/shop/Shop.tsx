@@ -1,70 +1,40 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
-import AddSection from '../../../components/addSection';
+import React, { ChangeEvent, useState } from 'react';
+import AddSection from '../../../components/addSection/Add';
 import { useDispatch, useSelector } from 'react-redux';
-
-import { addproduct } from '../../redux/Sclice/cartSlice';
-
+import { addproduct } from '../../../store/Slice/cartSlice';
 import ProCard from '../../../components/ProCard';
-interface RootState {
-  redux: {
-    products: [];
-  };
-}
-interface ProductType {
-  title: string;
-  price: number;
-  image: string;
-  description: string;
-  id: number;
-  category: string;
-  
-}
+import { ProductType, RootStateProduct } from '../../../constant/AllTypes';
+
 export default function Shop() {
 
-  const allproducts = useSelector((state: RootState) => state.redux.products);
-
+  const allproducts = useSelector((state: RootStateProduct) => state.redux.products);
   const [fitlteProducts, SetfitlteProducts] = useState(allproducts);
-
   const dispatch = useDispatch()
-  useEffect(() => {
-    SetfitlteProducts(allproducts);
-  }, [allproducts]);
-
   const getCategoryLengthArray = (products: any[], property: string) => {
     let categorySet = new Set(products.map((currElem) => currElem[property]));
-
     categorySet.add("All");
-
     const categoryLengthArray = Array.from(categorySet).map((category) => {
       const length =
         category === "All"
           ? products.length
           : products.filter((product) => product[property] === category).length;
-
       return { category, length };
     });
-
     return categoryLengthArray;
   };
-
   let categories = getCategoryLengthArray(allproducts, "category");
-
-
   const updatefiltervalue = (e: ChangeEvent<HTMLInputElement>) => {
     let value = e.target.value;
     let tempfilterproduct: any;
     let fitlte_Products = allproducts;
     tempfilterproduct = [...fitlte_Products];
-
     if (value !== "All") {
       tempfilterproduct = tempfilterproduct.filter((item: any) => {
         return item.category === value;
       });
     }
-
     SetfitlteProducts(tempfilterproduct);
   };
-
   const handleAddToCart = (item: any) => {
     let CartProduct = {
       title: item.title,
@@ -79,11 +49,11 @@ export default function Shop() {
   };
   return (
     <>
-      <div className="container">
+      <div className="px-[15px] w-[100%] md:px-[50px] lg:px-[60px] xl:px-[70px]">
         <div className="flex my-10 flex-wrap justify-center sm:justify-between">
           <div className="w-[90%] sm:w-[50%] md:w-[30%] lg:w-[20%] py-7">
             <div className="flex justify-between">
-              <p className='font-semibold text-overlay'>Categories</p>
+              <p className='font-semibold text-footer-300'>Categories</p>
               <p>Reset</p>
             </div>
             <div className="my-3">
@@ -106,7 +76,7 @@ export default function Shop() {
             </div>
             <hr />
             <div className="my-3">
-              <p className='font-semibold text-overlay'>Availability</p>
+              <p className='font-semibold text-footer-300'>Availability</p>
               <div className="flex justify-between my-3">
                 <p>0 selected</p>
                 <p>Reset</p>
@@ -122,7 +92,7 @@ export default function Shop() {
             </div>
             <hr />
             <div className="my-3">
-              <p className='font-semibold text-overlay'>Product type</p>
+              <p className='font-semibold text-footer-300'>Product type</p>
               <div className="flex justify-between my-3">
                 <p>0 selected</p>
                 <p>Reset</p>
@@ -134,7 +104,7 @@ export default function Shop() {
             </div>
             <hr />
             <div className="my-3">
-              <p className='font-semibold text-overlay'>Brand</p>
+              <p className='font-semibold text-footer-300'>Brand</p>
               <div className="flex justify-between my-3">
                 <p>0 selected</p>
                 <p>Reset</p>
@@ -146,7 +116,7 @@ export default function Shop() {
             </div>
             <hr />
             <div className="my-3">
-              <p className='font-semibold text-overlay'>Colors</p>
+              <p className='font-semibold text-footer-300'>Colors</p>
               <div className="flex justify-between my-3">
                 <p>0 selected</p>
                 <p>Reset</p>
@@ -165,7 +135,7 @@ export default function Shop() {
             </div>
             <hr />
             <div className="my-3">
-              <p className='font-semibold text-overlay'>Size</p>
+              <p className='font-semibold text-footer-300'>Size</p>
               <div className="flex justify-between my-3">
                 <p>0 selected</p>
                 <p>Reset</p>
@@ -197,10 +167,7 @@ export default function Shop() {
             <div className="flex flex-wrap mb-6 justify-center sm:gap-[24px]">
 
               {fitlteProducts.map((item: ProductType, i) => {
-
-                if (i > 7) {
-                  return <ProCard detail={item} />
-                }
+                return <ProCard detail={item} />
               }
               )}
             </div>

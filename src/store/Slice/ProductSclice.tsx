@@ -1,23 +1,10 @@
-import { createAsyncThunk, createSlice, PayloadAction, ThunkAction } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { ProductState } from "../../constant/AllTypes";
+import { productInstance } from "../../utilities/axiosInstance/AxiosInstance";
 
-
-interface Product {
-  id: number;
-  title: string;
-}
-
-interface RootState {
-  product: {
-    isLoading: boolean;
-    products: Product[];
-    isErrer: boolean;
-    categories: string[];
-  };
-}
 export const FetchProduct = createAsyncThunk("FetchProduct", async (state, action) => {
   try {
-    const response = await axios.get(`https://fakestoreapi.com/products`);
+    const response = await productInstance.get(`/products`);
     const data = response.data;
     return data;
   } catch (error) {
@@ -29,9 +16,9 @@ const ecommerceslice = createSlice({
   initialState: {
     isLoading: false,
     products: [],
-    isErrer: false,
+    isError: false,
     categories: [],
-  } as RootState["product"],
+  } as ProductState["product"],
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(FetchProduct.pending, (state, action) => {
@@ -42,7 +29,7 @@ const ecommerceslice = createSlice({
       state.products = action.payload
     })
     builder.addCase(FetchProduct.rejected, (state, action) => {
-      state.isErrer = true;
+      state.isError = true;
     })
   }
 });
