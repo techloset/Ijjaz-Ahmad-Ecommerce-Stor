@@ -10,7 +10,6 @@ export default function HeroCard(props: ClientCardProps) {
       <div className="w-[60%]">
         <h3 className='mb-3 text-xl font-semibold text-primary'>{props.title}</h3>
         <p className='text-lg font-semibold text-primary'>(6 items)</p>
-
       </div>
     </div>
   );

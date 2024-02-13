@@ -20,7 +20,6 @@ export default function HeroSlideCard() {
                         $89
                     </span>
                 </div>
-
             </div>
         </div>
     )

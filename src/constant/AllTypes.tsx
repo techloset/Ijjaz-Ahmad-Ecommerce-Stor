@@ -1,30 +1,23 @@
-export type ProductType = {
-    title: string;
-    price: number;
-    image: string;
-    description: string;
-    id: number;
-    category: string;
 
-}
 export type RootStateProduct = {
     redux: {
         products: [];
     };
 }
-export type RootStateCart = {
-    cart: {
-        cart: CartItem[];
-    };
-}
 export type CartItem = {
+    [key: string]: any;
     title: string,
     id: number,
     price: number,
     image: string,
     description: string,
-    category: string,
-    amounts: number,
+    category?: string,
+    amounts?: number,
+}
+export type RootStateCart = {
+    cart: {
+        cart: CartItem[];
+    };
 }
 
 export type RootStateSingle = {
@@ -36,23 +29,23 @@ export type RootStateSingle = {
 export type CartState = {
     cart: CartItem[];
     total_amount: number,
-    amount: number,
-    total_price: number,
+    amount?: number,
+    total_price?: number,
 }
 
 export type SingleProductState = {
-    singleProduct: ProductType;
+    singleProduct: CartItem;
 }
 export type ProductState = {
     product: {
         isLoading: boolean;
-        products: ProductType[];
+        products: CartItem[];
         isError: boolean;
         categories: string[];
     };
 }
 export type SingleState = {
-    singleProduct: Record<string, any>;
+    singleProduct: CartItem;
     loading: boolean;
     error: string | null;
 }
@@ -67,13 +60,4 @@ export type DealCardProps = {
     title: string,
     img: string,
     des: string,
-}
-export type CartProductAdd = {
-    title: string,
-    id: number,
-    price: number,
-    image: string,
-    description: string,
-    category: string,
-    amounts: 1
 }

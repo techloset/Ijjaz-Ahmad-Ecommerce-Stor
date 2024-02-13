@@ -1,27 +1,26 @@
-import axios from "axios";
-import { createSlice, PayloadAction, ThunkAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../Store";
-import { SingleState } from "../../constant/AllTypes";
+import { CartItem, SingleState } from "../../constant/AllTypes";
 import { productInstance } from "../../utilities/axiosInstance/AxiosInstance";
 
-export const FetchSingleProduct = (
-  productId: string
-): ThunkAction<void, RootState, unknown, any> => async (dispatch) => {
-  try {
-    dispatch(fetchSingleProductStart());
-    const response = await productInstance.get(`/products/${productId}`);
-    const data = response.data;
-    dispatch(fetchSingleProductSuccess(data));
-  } catch (error) {
-    dispatch(fetchSingleProductError('error.message'));
+export const FetchSingleProduct = createAsyncThunk(
+  'singleProduct/fetchSingleProduct',
+  async (id: string, { dispatch }) => {
+    try {
+      dispatch(fetchSingleProductStart());
+      const response = await productInstance.get(`/products/${id}`);
+      const data = response.data;
+      dispatch(fetchSingleProductSuccess(data));
+    } catch (error) {
+      dispatch(fetchSingleProductError('error.message'));
+    }
   }
-};
-
+);
 
 const singleProductSlice = createSlice({
   name: "singleProduct",
   initialState: {
-    singleProduct: {},
+    singleProduct: {} as CartItem,
     loading: false,
     error: null,
   } as SingleState,
@@ -30,7 +29,7 @@ const singleProductSlice = createSlice({
       state.loading = true;
       state.error = null;
     },
-    fetchSingleProductSuccess(state, action: PayloadAction<any>) {
+    fetchSingleProductSuccess(state, action: PayloadAction<CartItem>) {
       state.loading = false;
       state.singleProduct = action.payload;
     },
@@ -39,6 +38,7 @@ const singleProductSlice = createSlice({
       state.error = action.payload;
     },
   },
+
 });
 
 export const {
@@ -46,6 +46,5 @@ export const {
   fetchSingleProductSuccess,
   fetchSingleProductError,
 } = singleProductSlice.actions;
-
 
 export default singleProductSlice.reducer;

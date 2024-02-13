@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import ProCard from '../../../components/ProCard';
-import { ProductType, RootStateProduct } from '../../../constant/AllTypes';
+import { CartItem, RootStateProduct } from '../../../constant/AllTypes';
 
 export default function Product() {
     const products = useSelector((state: RootStateProduct) => state.redux.products);
@@ -33,7 +33,7 @@ export default function Product() {
             </div>
 
             <div className="flex mt-10 flex-wrap mb-6 justify-center gap-[31px]">
-                {products.map((item: ProductType, i) => {
+                {products.map((item: CartItem, i) => {
 
                     if (i < 8) {
                         return (

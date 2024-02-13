@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
-
+export type AppDispatch = typeof Store.dispatch;
 export const Store = configureStore({
     reducer: rootReducer,
 });

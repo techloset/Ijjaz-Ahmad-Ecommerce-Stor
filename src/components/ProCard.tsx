@@ -6,14 +6,14 @@ import heart from '../assets/icons/heart.svg';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addproduct } from '../store/Slice/cartSlice';
-import { ProductType } from '../constant/AllTypes';
+import { CartItem } from '../constant/AllTypes';
 
-export default function ProCard({ detail }: { detail: ProductType }) {
+export default function ProCard({ detail }: { detail: CartItem }) {
     let name = detail.title;
     let titlename = name.slice(0, 16)
 
     const dispatch = useDispatch()
-    const handleAddToCart = (item: any) => {
+    const handleAddToCart = (item: CartItem) => {
         let CartProduct = {
             title: item.title,
             id: item.id,
@@ -23,9 +23,8 @@ export default function ProCard({ detail }: { detail: ProductType }) {
             category: item.category,
             amounts: 1
         };
-        dispatch(addproduct(CartProduct) as any);
+        dispatch(addproduct(CartProduct));
     };
-
 
     return (
         <div className=" border border-gray-300 w-[308.83px] h-[313.75px] rounded-3xl  relative cardmain ">

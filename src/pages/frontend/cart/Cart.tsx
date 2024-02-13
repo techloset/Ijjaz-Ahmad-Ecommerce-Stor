@@ -14,6 +14,13 @@ const Cart: React.FC = () => {
   const deleteall = () => {
     dispatch(deleteproduct());
   };
+  const setDecrease = () => {
+    amount > 1 ? setAmount(amount - 1) : setAmount(1);
+  };
+
+  const setIncrease = () => {
+    setAmount(amount + 1);
+  };
 
   return (
     <>
@@ -37,17 +44,13 @@ const Cart: React.FC = () => {
                       <th scope="col" className="px-6 py-3">
                         SubTotal
                       </th>
+                      <th scope="col" className="px-6 py-3">
+
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
                     {cart.map((item, i) => {
-                      const setDecrease = () => {
-                        amount > 1 ? setAmount(amount - 1) : setAmount(1);
-                      };
-
-                      const setIncrease = () => {
-                        setAmount(amount + 1);
-                      };
 
                       let title = item.title.slice(0, 15);
                       return (
@@ -55,7 +58,7 @@ const Cart: React.FC = () => {
                           <th scope="row" className="px-6 py-3 font-medium">
                             <div className="flex items-center">
                               <img src={item.image} alt="image" className='min-w-[50px] min-h-[50px] max-w-0 me-4' />
-                              {title}
+                              <p> {title}</p>
                             </div>
                           </th>
                           <td className="px-6 py-3">
@@ -71,8 +74,11 @@ const Cart: React.FC = () => {
                           <td className="px-6 py-3">
                             ${Math.round(amount * item.price)}
                           </td>
-                          <button className='btn absolute right-4 top-8' onClick={() => dispatch(removeproduct(item.id))}>
-                            <img src={xmark} />                            </button>
+                          <td className="px-6 py-3">
+                            <button className='btn absolute right-4 top-8' onClick={() => dispatch(removeproduct(item.id))}>
+                              <img src={xmark} /> </button>
+                          </td>
+
                         </tr>
                       );
                     })}
@@ -103,7 +109,6 @@ const Cart: React.FC = () => {
                     <input className="outline-none ps-3 w-9/12 text-gray-400" placeholder='County' />
                     <button className=" text-end font-semibold text-primary p-2"><img src={arrrow} alt="" /></button>
                   </div>
-
                   <div className="flex flex-wrap justify-between py-3">
                     <span>Total Amount</span> <span>$457674</span>
                   </div>
@@ -119,7 +124,7 @@ const Cart: React.FC = () => {
           <>
             <h1 className='sm:text-[55px] text-[25px] text-center sm:text-left'>
               <span className='text-primary'>No</span>
-              <span className='text-warning sm:text-[50px]'> Product</span>
+              <span className='text-warning sm:text-[50px]'> Product in</span>
               <span className='text-primary'> Your</span>
               <span className='text-warning sm:text-[50px]'> Cart</span>
             </h1>

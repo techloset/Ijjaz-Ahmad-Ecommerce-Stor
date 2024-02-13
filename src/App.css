@@ -82,6 +82,7 @@
     left: -184px !important;
   }
 }
+
 .cardmain:hover .content {
   visibility: hidden;
 }

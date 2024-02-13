@@ -7,7 +7,8 @@ import { addproduct } from '../../../store/Slice/cartSlice';
 import star from '../../../assets/icons/star.svg';
 import heart from '../../../assets/icons/heart.svg';
 import ProCard from '../../../components/ProCard';
-import { ProductType, RootStateProduct, RootStateSingle } from '../../../constant/AllTypes';
+import { AppDispatch } from '../../../store/Store';
+import { CartItem, RootStateProduct, RootStateSingle } from '../../../constant/AllTypes';
 
 export default function SingleProduct() {
     const [amount, setAmount] = useState<number>(1);
@@ -15,12 +16,12 @@ export default function SingleProduct() {
     const singleProduct = useSelector((state: RootStateSingle) => state.singleProduct.singleProduct);
     const [Path, SetPath] = useState<string>(singleProduct.image);
     const { id } = useParams();
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     useEffect(() => {
         if (id) {
-            dispatch(FetchSingleProduct(id) as any);
+            dispatch(FetchSingleProduct(id) );
         }
-    }, [id, dispatch]);
+    }, [id, dispatch])
     useEffect(() => {
         SetPath(singleProduct.image)
     }, [singleProduct]);
@@ -34,7 +35,7 @@ export default function SingleProduct() {
             category: singleProduct.category,
             amounts: amount
         };
-        dispatch(addproduct(CartProduct) as any);
+        dispatch(addproduct(CartProduct));
     };
     const setDecrease = () => {
         setAmount((prevAmount) => (prevAmount > 1 ? prevAmount - 1 : 1));
@@ -135,10 +136,14 @@ export default function SingleProduct() {
                 </div>
                 <h1 className="text-primary text-3xl font-semibold mb-5 mt-10">Related Product</h1>
                 <div className="flex flex-wrap mb-6 justify-center sm:gap-[24px]">
-                    {products.map((item: ProductType, i) => {
+                    {products.map((item: CartItem, i) => {
 
                         if (i > 15) {
-                            return <ProCard detail={item} />
+                            return(
+                                <div key={i}>
+                                     <ProCard detail={item} />
+                                </div>
+                            )
                         }
                     }
                     )}

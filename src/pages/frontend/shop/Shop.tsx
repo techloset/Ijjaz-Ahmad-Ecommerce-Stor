@@ -3,14 +3,15 @@ import AddSection from '../../../components/addSection/Add';
 import { useDispatch, useSelector } from 'react-redux';
 import { addproduct } from '../../../store/Slice/cartSlice';
 import ProCard from '../../../components/ProCard';
-import { ProductType, RootStateProduct } from '../../../constant/AllTypes';
+import { CartItem, RootStateProduct } from '../../../constant/AllTypes';
 
 export default function Shop() {
 
   const allproducts = useSelector((state: RootStateProduct) => state.redux.products);
-  const [fitlteProducts, SetfitlteProducts] = useState(allproducts);
-  const dispatch = useDispatch()
-  const getCategoryLengthArray = (products: any[], property: string) => {
+  const [fitlteProducts, SetfitlteProducts] = useState<CartItem[]>(allproducts);
+  const dispatch = useDispatch();
+
+  const getCategoryLengthArray = (products: CartItem[], property: string) => {
     let categorySet = new Set(products.map((currElem) => currElem[property]));
     categorySet.add("All");
     const categoryLengthArray = Array.from(categorySet).map((category) => {
@@ -22,31 +23,20 @@ export default function Shop() {
     });
     return categoryLengthArray;
   };
+
   let categories = getCategoryLengthArray(allproducts, "category");
+
   const updatefiltervalue = (e: ChangeEvent<HTMLInputElement>) => {
     let value = e.target.value;
-    let tempfilterproduct: any;
-    let fitlte_Products = allproducts;
-    tempfilterproduct = [...fitlte_Products];
-    if (value !== "All") {
-      tempfilterproduct = tempfilterproduct.filter((item: any) => {
-        return item.category === value;
-      });
+    let tempfilterproduct: CartItem[] = [];
+    if (value === "All") {
+      tempfilterproduct = allproducts;
+    } else {
+      tempfilterproduct = allproducts.filter((item: CartItem) => item.category === value);
     }
     SetfitlteProducts(tempfilterproduct);
   };
-  const handleAddToCart = (item: any) => {
-    let CartProduct = {
-      title: item.title,
-      id: item.id,
-      price: item.price,
-      image: item.image,
-      description: item.description,
-      category: item.category,
-      amounts: 1
-    };
-    dispatch(addproduct(CartProduct) as any);
-  };
+
   return (
     <>
       <div className="px-[15px] w-[100%] md:px-[50px] lg:px-[60px] xl:px-[70px]">
@@ -166,8 +156,12 @@ export default function Shop() {
           <div className="w-[90%] sm:w-[50%] md:w-[70%] lg:w-[80%] py-7">
             <div className="flex flex-wrap mb-6 justify-center sm:gap-[24px]">
 
-              {fitlteProducts.map((item: ProductType, i) => {
-                return <ProCard detail={item} />
+              {fitlteProducts.map((item: CartItem, i) => {
+                return (
+                  <div key={i}>
+                    <ProCard detail={item} />
+                  </div>
+                )
               }
               )}
             </div>

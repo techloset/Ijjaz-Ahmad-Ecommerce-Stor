@@ -18,28 +18,26 @@ const cartSlice = createSlice({
     total_amount: 0,
     amount: 0,
     total_price: 0,
-  } as CartState,
+  } as CartState, // Explicitly type initialState as CartState
   reducers: {
     addproduct: (state, action: PayloadAction<CartItem>) => {
       state.cart.push(action.payload);
       localStorage.setItem("cartProduct", JSON.stringify(state.cart));
     },
     removeproduct: (state, action: PayloadAction<number>) => {
-      let updatedCart = state.cart.filter(
+      state.cart = state.cart.filter(
         (curItem) => curItem.id !== action.payload
       );
-      state.cart = updatedCart;
     },
     SetDec: (state, action: PayloadAction<number>) => {
-      let updatedCart = state.cart.filter(
+      state.cart = state.cart.filter(
         (curItem) => curItem.id !== action.payload
       );
-      state.cart = updatedCart;
     },
     SetInc: (state, action: PayloadAction<number>) => {
-      let updatedProducts = state.cart.map((curElem: any) => {
+      state.cart = state.cart.map((curElem) => {
         if (curElem.id === action.payload) {
-          let incAmount = curElem.amounts + 1;
+          let incAmount = (curElem.amounts || 0) + 1;
 
           return {
             ...curElem,
@@ -49,8 +47,6 @@ const cartSlice = createSlice({
           return curElem;
         }
       });
-
-      state.cart = updatedProducts
     },
     deleteproduct: (state) => {
       state.cart = [];
