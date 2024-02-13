@@ -1,12 +1,12 @@
 import React from 'react'
-import { ClientCardProps } from '../constant/AllTypes'
+import { clientCardProps } from '../constant/Types'
 
-export default function ClientCard(Props: ClientCardProps) {
+export default function ClientCard(Props: clientCardProps) {
     const { img, title } = Props
 
     return (
         <div className="card mb-14">
-            <div className="border border-gray-300 rounded-3xl py-3 px-9 relative cardmain">
+            <div className="border border-gray-300 rounded-3xl py-3 px-9 relative cardMain">
                 <div className="flex flex-wrap text-center items-center">
                     <img src={img} className="w-[100px] h-[100px] me-[37px]" />
                     <h3 className='text-[15px] font-semibold text-primary'>{title}</h3>

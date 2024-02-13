@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { FetchProduct } from '../store/Slice/ProductSclice';
+import { FetchProduct } from '../store/slice/ProductSclice';
 import { AppDispatch } from '../store/Store'; 
 
 const GetProduct = createContext({});

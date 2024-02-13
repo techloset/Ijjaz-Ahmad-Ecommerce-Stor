@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../Store";
-import { CartItem, SingleState } from "../../constant/AllTypes";
+import { cartItem, singleState } from "../../constant/Types";
 import { productInstance } from "../../utilities/axiosInstance/AxiosInstance";
 
 export const FetchSingleProduct = createAsyncThunk(
@@ -20,16 +20,16 @@ export const FetchSingleProduct = createAsyncThunk(
 const singleProductSlice = createSlice({
   name: "singleProduct",
   initialState: {
-    singleProduct: {} as CartItem,
+    singleProduct: {} as cartItem,
     loading: false,
     error: null,
-  } as SingleState,
+  } as singleState,
   reducers: {
     fetchSingleProductStart(state) {
       state.loading = true;
       state.error = null;
     },
-    fetchSingleProductSuccess(state, action: PayloadAction<CartItem>) {
+    fetchSingleProductSuccess(state, action: PayloadAction<cartItem>) {
       state.loading = false;
       state.singleProduct = action.payload;
     },

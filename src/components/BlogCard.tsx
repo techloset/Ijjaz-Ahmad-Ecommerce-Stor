@@ -1,7 +1,7 @@
 import React from 'react'
-import { BlogCardProps } from '../constant/AllTypes'
+import { blogCardProps } from '../constant/Types'
 
-export default function BlogCard(props: BlogCardProps) {
+export default function BlogCard(props: blogCardProps) {
   return (
     <div className="my-10">
       <div className="border-2 rounded-3xl max-w-[650px] flex flex-wrap items-center justify-between">

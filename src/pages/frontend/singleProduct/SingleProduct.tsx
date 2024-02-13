@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { FetchSingleProduct } from '../../../store/Slice/singleProductSlice'
+import { FetchSingleProduct } from '../../../store/slice/SingleProductSlice'
 import img from '../../../assets/images/Product/headphone3.jpg';
 import { useDispatch, useSelector } from 'react-redux';
-import { addproduct } from '../../../store/Slice/cartSlice';
+import { addProduct } from '../../../store/slice/CartSlice';
 import star from '../../../assets/icons/star.svg';
 import heart from '../../../assets/icons/heart.svg';
 import ProCard from '../../../components/ProCard';
 import { AppDispatch } from '../../../store/Store';
-import { CartItem, RootStateProduct, RootStateSingle } from '../../../constant/AllTypes';
+import { cartItem, rootStateProduct, rootStateSingle } from '../../../constant/Types';
 
 export default function SingleProduct() {
     const [amount, setAmount] = useState<number>(1);
-    const products = useSelector((state: RootStateProduct) => state.redux.products);
-    const singleProduct = useSelector((state: RootStateSingle) => state.singleProduct.singleProduct);
+    const products = useSelector((state: rootStateProduct) => state.redux.products);
+    const singleProduct = useSelector((state: rootStateSingle) => state.singleProduct.singleProduct);
     const [Path, SetPath] = useState<string>(singleProduct.image);
     const { id } = useParams();
     const dispatch = useDispatch<AppDispatch>();
@@ -26,7 +26,7 @@ export default function SingleProduct() {
         SetPath(singleProduct.image)
     }, [singleProduct]);
     const handleAddToCart = () => {
-        let CartProduct = {
+        let cartProduct = {
             title: singleProduct.title,
             id: singleProduct.id,
             price: singleProduct.price,
@@ -35,7 +35,7 @@ export default function SingleProduct() {
             category: singleProduct.category,
             amounts: amount
         };
-        dispatch(addproduct(CartProduct));
+        dispatch(addProduct(cartProduct));
     };
     const setDecrease = () => {
         setAmount((prevAmount) => (prevAmount > 1 ? prevAmount - 1 : 1));
@@ -136,7 +136,7 @@ export default function SingleProduct() {
                 </div>
                 <h1 className="text-primary text-3xl font-semibold mb-5 mt-10">Related Product</h1>
                 <div className="flex flex-wrap mb-6 justify-center sm:gap-[24px]">
-                    {products.map((item: CartItem, i) => {
+                    {products.map((item: cartItem, i) => {
 
                         if (i > 15) {
                             return(

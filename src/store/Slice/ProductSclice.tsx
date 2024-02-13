@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { ProductState } from "../../constant/AllTypes";
+import { productState } from "../../constant/Types";
 import { productInstance } from "../../utilities/axiosInstance/AxiosInstance";
 
 export const FetchProduct = createAsyncThunk("FetchProduct", async (state, action) => {
@@ -18,7 +18,7 @@ const ecommerceslice = createSlice({
     products: [],
     isError: false,
     categories: [],
-  } as ProductState["product"],
+  } as productState["product"],
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(FetchProduct.pending, (state, action) => {

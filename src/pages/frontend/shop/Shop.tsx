@@ -1,40 +1,43 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import AddSection from '../../../components/addSection/Add';
 import { useDispatch, useSelector } from 'react-redux';
-import { addproduct } from '../../../store/Slice/cartSlice';
 import ProCard from '../../../components/ProCard';
-import { CartItem, RootStateProduct } from '../../../constant/AllTypes';
-
+import { cartItem, rootStateProduct } from '../../../constant/Types';
+import { FetchProduct } from '../../../store/slice/ProductSclice';
+import { AppDispatch } from '.././../../store/Store'; 
 export default function Shop() {
 
-  const allproducts = useSelector((state: RootStateProduct) => state.redux.products);
-  const [fitlteProducts, SetfitlteProducts] = useState<CartItem[]>(allproducts);
-  const dispatch = useDispatch();
-
-  const getCategoryLengthArray = (products: CartItem[], property: string) => {
-    let categorySet = new Set(products.map((currElem) => currElem[property]));
+  const allProducts = useSelector((state: rootStateProduct) => state.redux.products);
+  const [filterProducts, SetFilterProducts] = useState<cartItem[]>(allProducts);
+  const dispatch = useDispatch<AppDispatch>();
+useEffect(()=>{
+  dispatch(FetchProduct());
+  SetFilterProducts(allProducts)
+},[allProducts])
+  const getCategoryLengthArray = (products: cartItem[]) => {
+    let categorySet = new Set(products.map((currElem) => currElem.category));
     categorySet.add("All");
     const categoryLengthArray = Array.from(categorySet).map((category) => {
       const length =
         category === "All"
           ? products.length
-          : products.filter((product) => product[property] === category).length;
+          : products.filter((product) => product.category === category).length;
       return { category, length };
     });
     return categoryLengthArray;
   };
 
-  let categories = getCategoryLengthArray(allproducts, "category");
+  let categories = getCategoryLengthArray(allProducts);
 
-  const updatefiltervalue = (e: ChangeEvent<HTMLInputElement>) => {
+  const updateFilterValue = (e: ChangeEvent<HTMLInputElement>) => {
     let value = e.target.value;
-    let tempfilterproduct: CartItem[] = [];
+    let tempFilterProduct: cartItem[] = [];
     if (value === "All") {
-      tempfilterproduct = allproducts;
+      tempFilterProduct = allProducts;
     } else {
-      tempfilterproduct = allproducts.filter((item: CartItem) => item.category === value);
+      tempFilterProduct = allProducts.filter((item: cartItem) => item.category === value);
     }
-    SetfitlteProducts(tempfilterproduct);
+    SetFilterProducts(tempFilterProduct);
   };
 
   return (
@@ -56,7 +59,7 @@ export default function Shop() {
                       id={`flexRadioDefault${i + 1}`}
                       name="category"
                       value={category.category}
-                      onChange={updatefiltervalue}
+                      onChange={updateFilterValue}
                     />
                     <span className='ms-2'>{category.category}</span>
                   </p>
@@ -156,7 +159,7 @@ export default function Shop() {
           <div className="w-[90%] sm:w-[50%] md:w-[70%] lg:w-[80%] py-7">
             <div className="flex flex-wrap mb-6 justify-center sm:gap-[24px]">
 
-              {fitlteProducts.map((item: CartItem, i) => {
+              {filterProducts.map((item: cartItem, i) => {
                 return (
                   <div key={i}>
                     <ProCard detail={item} />

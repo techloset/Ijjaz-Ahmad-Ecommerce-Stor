@@ -1,7 +1,7 @@
 import React from 'react'
-import { DealCardProps } from '../constant/AllTypes'
+import { dealCardProps } from '../constant/Types'
 
-export default function DealCard(Props: DealCardProps) {
+export default function DealCard(Props: dealCardProps) {
   return (
     <div className="flex">
       <div>

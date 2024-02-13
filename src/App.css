@@ -83,11 +83,11 @@
   }
 }
 
-.cardmain:hover .content {
+.cardMain:hover .content {
   visibility: hidden;
 }
 
-.cardmain:hover .overlay {
+.cardMain:hover .overlay {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(-50%);

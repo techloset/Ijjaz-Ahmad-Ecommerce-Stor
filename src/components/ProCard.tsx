@@ -5,16 +5,16 @@ import star from '../assets/icons/star.svg';
 import heart from '../assets/icons/heart.svg';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addproduct } from '../store/Slice/cartSlice';
-import { CartItem } from '../constant/AllTypes';
+import { addProduct } from '../store/slice/CartSlice';
+import { cartItem } from '../constant/Types';
 
-export default function ProCard({ detail }: { detail: CartItem }) {
+export default function ProCard({ detail }: { detail: cartItem }) {
     let name = detail.title;
     let titlename = name.slice(0, 16)
 
     const dispatch = useDispatch()
-    const handleAddToCart = (item: CartItem) => {
-        let CartProduct = {
+    const handleAddToCart = (item: cartItem) => {
+        let cartProduct = {
             title: item.title,
             id: item.id,
             price: item.price,
@@ -23,11 +23,11 @@ export default function ProCard({ detail }: { detail: CartItem }) {
             category: item.category,
             amounts: 1
         };
-        dispatch(addproduct(CartProduct));
+        dispatch(addProduct(cartProduct));
     };
 
     return (
-        <div className=" border border-gray-300 w-[308.83px] h-[313.75px] rounded-3xl  relative cardmain ">
+        <div className=" border border-gray-300 w-[308.83px] h-[313.75px] rounded-3xl  relative cardMain ">
             <div className="m-[10px]">
                 <div className='w-[282.28px] h-[168.18px]'>
                     <span className='bg-footer-300 absolute right-4 top-4 lg:right-7 lg:top-5 p-2 text-center text-white flex items-center rounded-full'>

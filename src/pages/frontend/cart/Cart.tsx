@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeproduct, deleteproduct } from '../../../store/Slice/cartSlice';
+import { removeproduct, deleteproduct } from '../../../store/slice/CartSlice';
 import { Link } from 'react-router-dom';
 import arrrow from '../../../assets/icons/arrow-down.svg';
 import xmark from '../../../assets/icons/close-circle.svg';
-import { RootStateCart } from '../../../constant/AllTypes';
+import { rootStateCart } from '../../../constant/Types';
 
 const Cart: React.FC = () => {
   const [amount, setAmount] = useState(1);
-  const cart = useSelector((state: RootStateCart) => state.cart.cart);
+  const cart = useSelector((state: rootStateCart) => state.cart.cart);
   const dispatch = useDispatch();
 
-  const deleteall = () => {
+  const deleteAll = () => {
     dispatch(deleteproduct());
   };
   const setDecrease = () => {
@@ -89,7 +89,7 @@ const Cart: React.FC = () => {
                 <Link to={'/catalog'} className='bg-warning text-white py-3 px-8 uppercase rounded-full'>Continue shopping</Link>
 
                 <Link to={'#'} className='border-light border-2 my-5 sm:my-0 text-gray-400 py-3 px-8 uppercase rounded-full'>Update Cart</Link>
-                <Link to={'/cart'} className='text-[#C33131] border-2 border-[#C33131] py-3 px-8 uppercase rounded-full' onClick={deleteall}>Clear cart</Link>
+                <Link to={'/cart'} className='text-[#C33131] border-2 border-[#C33131] py-3 px-8 uppercase rounded-full' onClick={deleteAll}>Clear cart</Link>
               </div>
             </div>
             <div className="w-[100%]  lg:w-[29%] ">
