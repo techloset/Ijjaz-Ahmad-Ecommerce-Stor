@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../Store";
 import { cartItem, singleState } from "../../constant/Types";
 import { productInstance } from "../../utilities/axiosInstance/AxiosInstance";
 

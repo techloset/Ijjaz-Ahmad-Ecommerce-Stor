@@ -18,7 +18,7 @@ const cartSlice = createSlice({
     total_amount: 0,
     amount: 0,
     total_price: 0,
-  } as cartState, // Explicitly type initialState as cartState
+  } as cartState,
   reducers: {
     addProduct: (state, action: PayloadAction<cartItem>) => {
       state.cart.push(action.payload);

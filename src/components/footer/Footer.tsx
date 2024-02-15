@@ -8,7 +8,7 @@ import send from '../../assets/icons/send-2.svg'
 export default function Footer() {
     return (
 
-        <div className="bg-footer p-3 pt-10">
+        <div className="bg-footer p-3 pt-10 font-poppins">
             <div className="px-[15px] w-[100%] md:px-[50px] lg:px-[60px] xl:px-[70px]">
                 <div className="bg-white py-6 rounded-xl flex flex-wrap justify-center items-center gap-x-[137px]">
                     <div>

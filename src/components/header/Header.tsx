@@ -14,7 +14,7 @@ export default function Header() {
   const cart = useSelector((state: RootState) => state.cart.cart)
   return (
 
-    <div className="bg-primary">
+    <div className="bg-primary font-poppins">
       <div className="px-[15px] w-[100%] md:px-[50px] lg:px-[60px] xl:px-[70px]">
         <header className="header py-4">
           <div className="flex items-center justify-between">

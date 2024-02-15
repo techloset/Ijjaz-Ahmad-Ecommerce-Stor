@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Header />
-      <main className='flex,flex-col min-h-[70vh]'>
+      <main className='flex flex-col min-h-[70vh] font-poppins'>
         <Routes />
       </main>
       <Footer />

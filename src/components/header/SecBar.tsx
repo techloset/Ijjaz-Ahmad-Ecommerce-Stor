@@ -5,7 +5,7 @@ import arrrow1 from '../../assets/icons/arrow-down-2.svg';
 
 export default function SecBar() {
   return (
-    <div className="bg-gray">
+    <div className="bg-gray font-poppins">
       <header className='px-[15px] w-[100%] md:px-[50px] lg:px-[60px] xl:px-[70px]'>
         <nav className="text-center py-3 sm:py-0 md:flex items-center justify-between pt-[20px] sm:pt-0'">
           <div className="flex justify-center  bg-warning text-white text-center p-4">

@@ -5,7 +5,7 @@ import truck from '../../assets/icons/truck.svg'
 export default function TopBar() {
   return (
 
-    <div className="bg-white">
+    <div className="bg-white font-poppins">
       <div className="px-[15px] w-[100%] md:px-[50px] lg:px-[60px] xl:px-[70px]">
         <nav className="text-center lightBlack md:flex items-center justify-between py-4">
           <div>
