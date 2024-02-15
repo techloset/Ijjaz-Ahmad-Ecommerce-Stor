@@ -1,5 +1,5 @@
 import React from 'react'
-import { blogCardProps } from '../constant/Types'
+import { blogCardProps } from '../../constant/Types'
 
 export default function BlogCard(props: blogCardProps) {
   return (

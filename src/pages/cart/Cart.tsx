@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeproduct, deleteproduct } from '../../../store/slice/CartSlice';
+import { removeproduct, deleteproduct } from '../../store/slice/CartSlice';
 import { Link } from 'react-router-dom';
-import arrrow from '../../../assets/icons/arrow-down.svg';
-import xmark from '../../../assets/icons/close-circle.svg';
-import { rootStateCart } from '../../../constant/Types';
+import arrrow from '../../assets/icons/arrow-down.svg';
+import xmark from '../../assets/icons/close-circle.svg';
+import { rootStateCart } from '../../constant/Types';
 
 const Cart: React.FC = () => {
   const [amount, setAmount] = useState(1);

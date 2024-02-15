@@ -1,5 +1,5 @@
 import React from 'react'
-import { dealCardProps } from '../constant/Types'
+import { dealCardProps } from '../../constant/Types'
 
 export default function DealCard(Props: dealCardProps) {
   return (

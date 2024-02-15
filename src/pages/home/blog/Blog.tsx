@@ -1,5 +1,5 @@
 import React from 'react'
-import BlogCard from '../../../components/BlogCard'
+import BlogCard from '../../../components/blogCard/BlogCard'
 import blog1 from '../../../assets/images/blog1.png'
 import blog2 from '../../../assets/images/blog2.png'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';

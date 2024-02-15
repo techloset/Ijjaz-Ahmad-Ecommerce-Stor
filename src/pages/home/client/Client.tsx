@@ -7,7 +7,7 @@ import logo2 from '../../../assets/images/deal/logo (2).png'
 import logo3 from '../../../assets/images/deal/logo (3).png'
 import logo4 from '../../../assets/images/deal/logo (4).png'
 import logo5 from '../../../assets/images/deal/logo (5).png'
-import ClientCard from '../../../components/ClientCard'
+import ClientCard from '../../../components/clientCard/ClientCard'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';

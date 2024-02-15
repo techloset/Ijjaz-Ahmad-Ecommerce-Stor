@@ -1,5 +1,5 @@
 import React from 'react'
-import hero from '../assets/images/hero.png'
+import hero from '../../assets/images/hero.png'
 
 export default function HeroSlideCard() {
     return (

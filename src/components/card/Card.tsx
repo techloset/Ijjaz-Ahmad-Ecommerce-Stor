@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from "../assets/images/Product/feathuer.png";
-import star from "../assets/icons/star.svg";
+import logo from "../../assets//images/Product/feathuer.png";
+import star from "../../assets/icons/star.svg";
 
 export default function Card() {
   return (

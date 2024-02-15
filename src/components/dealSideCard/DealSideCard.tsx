@@ -1,8 +1,8 @@
 import React from 'react'
-import logo from '../assets/images/Product/feathuer.png'
-import star from '../assets/icons/star.svg'
-import eye from '../assets/icons/eye.svg'
-import cart from '../assets/icons/shopping-cart.svg'
+import logo from '../../assets/images/Product/feathuer.png'
+import star from '../../assets/icons/star.svg'
+import eye from '../../assets/icons/eye.svg'
+import cart from '../../assets/icons/shopping-cart.svg'
 
 export default function DealSildCard() {
     return (

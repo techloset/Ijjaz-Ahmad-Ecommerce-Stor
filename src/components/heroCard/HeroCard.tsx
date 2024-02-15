@@ -1,5 +1,5 @@
 import React from 'react';
-import { clientCardProps } from '../constant/Types';
+import { clientCardProps } from '../../constant/Types';
 
 export default function HeroCard(props: clientCardProps) {
   return (

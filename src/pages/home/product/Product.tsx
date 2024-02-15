@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import ProCard from '../../../components/ProCard';
+import ProCard from '../../../components/productCard/ProCard';
 import { cartItem, rootStateProduct } from '../../../constant/Types';
 
 export default function Product() {

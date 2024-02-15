@@ -1,10 +1,10 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import AddSection from '../../../components/addSection/Add';
+import AddSection from '../../components/addSection/Add';
 import { useDispatch, useSelector } from 'react-redux';
-import ProCard from '../../../components/ProCard';
-import { cartItem, rootStateProduct } from '../../../constant/Types';
-import { FetchProduct } from '../../../store/slice/ProductSclice';
-import { AppDispatch } from '.././../../store/Store'; 
+import ProCard from '../../components/productCard/ProCard';
+import { cartItem, rootStateProduct } from '../../constant/Types';
+import { FetchProduct } from '../../store/slice/ProductSclice';
+import { AppDispatch } from '../../store/Store'; 
 export default function Shop() {
 
   const allProducts = useSelector((state: rootStateProduct) => state.redux.products);

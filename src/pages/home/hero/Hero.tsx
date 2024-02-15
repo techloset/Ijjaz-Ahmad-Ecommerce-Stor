@@ -1,5 +1,5 @@
 import React from 'react'
-import HeroCard from '../../../components/HeroCard'
+import HeroCard from '../../../components/heroCard/HeroCard'
 import logo1 from '../../../assets/images/Product/logo1.png'
 import logo2 from '../../../assets/images/Product/logo2.png'
 import logo3 from '../../../assets/images/Product/logo3.png'
@@ -9,7 +9,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import HeroSlideCard from '../../../components/HeroSlideCard'
+import HeroSlideCard from '../../../components/heroSlideCard/HeroSlideCard'
 
 export default function Hero() {
     return (

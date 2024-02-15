@@ -1,12 +1,12 @@
 import React from 'react'
-import eye from '../assets/icons/eye.svg';
-import cart from '../assets/icons/shopping-cart.svg';
-import star from '../assets/icons/star.svg';
-import heart from '../assets/icons/heart.svg';
+import eye from '../../assets/icons/eye.svg';
+import cart from '../../assets/icons/shopping-cart.svg';
+import star from '../../assets/icons/star.svg';
+import heart from '../../assets/icons/heart.svg';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addProduct } from '../store/slice/CartSlice';
-import { cartItem } from '../constant/Types';
+import { addProduct } from '../../store/slice/CartSlice';
+import { cartItem } from '../../constant/Types';
 
 export default function ProCard({ detail }: { detail: cartItem }) {
     let name = detail.title;

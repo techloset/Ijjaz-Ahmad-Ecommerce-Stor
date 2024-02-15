@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { FetchSingleProduct } from '../../../store/slice/SingleProductSlice'
-import img from '../../../assets/images/Product/headphone3.jpg';
+import { FetchSingleProduct } from '../../store/slice/SingleProductSlice'
+import img from '../../assets/images/Product/headphone3.jpg';
 import { useDispatch, useSelector } from 'react-redux';
-import { addProduct } from '../../../store/slice/CartSlice';
-import star from '../../../assets/icons/star.svg';
-import heart from '../../../assets/icons/heart.svg';
-import ProCard from '../../../components/ProCard';
-import { AppDispatch } from '../../../store/Store';
-import { cartItem, rootStateProduct, rootStateSingle } from '../../../constant/Types';
+import { addProduct } from '../../store/slice/CartSlice';
+import star from '../../assets/icons/star.svg';
+import heart from '../../assets/icons/heart.svg';
+import ProCard from '../../components/productCard/ProCard';
+import { AppDispatch } from '../../store/Store';
+import { cartItem, rootStateProduct, rootStateSingle } from '../../constant/Types';
 
 export default function SingleProduct() {
     const [amount, setAmount] = useState<number>(1);
