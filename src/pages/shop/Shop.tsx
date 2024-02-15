@@ -1,20 +1,18 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import AddSection from '../../components/addSection/Add';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ProCard from '../../components/productCard/ProCard';
 import { cartItem, rootStateProduct } from '../../constant/Types';
-import { FetchProduct } from '../../store/slice/ProductSclice';
-import { AppDispatch } from '../../store/Store'; 
 export default function Shop() {
 
+
   const allProducts = useSelector((state: rootStateProduct) => state.redux.products);
-  const [filterProducts, SetFilterProducts] = useState<cartItem[]>(allProducts);
-  const dispatch = useDispatch<AppDispatch>();
-useEffect(()=>{
-  dispatch(FetchProduct());
-  SetFilterProducts(allProducts)
-},[allProducts])
+  const [filterProducts, SetFilterProducts] = useState<cartItem[]>([]);
+  useEffect(() => {
+    SetFilterProducts(allProducts);
+  }, [allProducts]);
   const getCategoryLengthArray = (products: cartItem[]) => {
+
     let categorySet = new Set(products.map((currElem) => currElem.category));
     categorySet.add("All");
     const categoryLengthArray = Array.from(categorySet).map((category) => {
@@ -24,6 +22,7 @@ useEffect(()=>{
           : products.filter((product) => product.category === category).length;
       return { category, length };
     });
+
     return categoryLengthArray;
   };
 
