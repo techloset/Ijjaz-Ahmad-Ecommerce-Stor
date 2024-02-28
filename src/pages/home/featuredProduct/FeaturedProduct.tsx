@@ -38,7 +38,7 @@ export default function FeaturedProduct() {
           </div>
         </div>
       </div>
-      <div className="bg-footer p-6 mb-[75px] rounded-lg">
+      <div className="bg-footer p-6 mb-[75px] md:rounded-lg">
         <div className="flex flex-wrap items-center justify-between ">
           <DealCard title={'Free delivery'} img={img} des={'on order above $50,00'} />
           <DealCard title={'1 year warranty'} img={img2} des={'Avaliable warranty'} />

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import arrrow from '../../assets/icons/arrow-down.svg';
 import xmark from '../../assets/icons/close-circle.svg';
 import { rootStateCart } from '../../constant/Types';
+import TopBar from '../../components/topBar/TopBar';
 
 const Cart: React.FC = () => {
   const [amount, setAmount] = useState(1);
@@ -24,9 +25,10 @@ const Cart: React.FC = () => {
 
   return (
     <>
-      <div className="px-[15px] w-[100%] md:px-[50px] lg:px-[60px] xl:px-[70px] mx-auto mb-[96px] mt-[31px]">
+      <div className="px-[15px] w-[100%] md:px-[50px] lg:px-[60px] xl:px-[70px] mx-auto mb-[96px] ">
+      <TopBar pageName="Cart" />
         {cart.length ? (
-          <div className="flex flex-wrap justify-evenly">
+          <div className="flex flex-wrap justify-evenly mt-[10px]">
             <div className="w-[100%]  lg:w-[69%]">
               <div className="relative overflow-x-auto mb-8">
                 <table className="w-full text-sm text-left rtl:text-right">
@@ -55,27 +57,27 @@ const Cart: React.FC = () => {
                       let title = item.title.slice(0, 15);
                       return (
                         <tr key={i} className='border-b-2 relative'>
-                          <th scope="row" className="px-6 py-3 font-medium">
+                          <th scope="row" className="px-6 py-10 font-medium">
                             <div className="flex items-center">
                               <img src={item.image} alt="image" className='min-w-[50px] min-h-[50px] max-w-0 me-4' />
-                              <p> {title}</p>
+                              <h3>{title}</h3>
                             </div>
                           </th>
-                          <td className="px-6 py-3">
+                          <td className="px-6 py-10">
                             ${Math.round(item.price)}
                           </td>
-                          <td className="px-6 py-3">
+                          <td className="px-6 py-10">
                             <div className="flex ms-3">
                               <button className="outline-none py-2 px-3 border-gray-950 border bg-gray-200" onClick={setDecrease}>-</button>
                               <button className="outline-none py-2 px-7 border-gray-950 border bg-gray-200">{amount}</button>
                               <button className="outline-none py-2 px-3 border-gray-950 border bg-gray-200" onClick={setIncrease}>+</button>
                             </div>
                           </td>
-                          <td className="px-6 py-3">
+                          <td className="px-6 py-10">
                             ${Math.round(amount * item.price)}
                           </td>
-                          <td className="px-6 py-3">
-                            <button className='btn absolute right-4 top-8' onClick={() => dispatch(removeproduct(item.id))}>
+                          <td className="px-6 py-10">
+                            <button className='btn absolute right-4 top-14' onClick={() => dispatch(removeproduct(item.id))}>
                               <img src={xmark} /> </button>
                           </td>
 
@@ -105,7 +107,7 @@ const Cart: React.FC = () => {
                     <button className="text-sm text-primary p-3">Apply</button>
                   </div>
                   <span className='border-b-2'></span>
-                  <div className="flex justify-between border-2  my-[33px] items-center rounded-2xl">
+                  <div className="flex justify-between border-2 mb-3  mt-[33px] items-center rounded-2xl">
                     <input className="outline-none ps-3 w-9/12 text-gray-400" placeholder='County' />
                     <button className=" text-end font-semibold text-primary p-2"><img src={arrrow} alt="" /></button>
                   </div>
