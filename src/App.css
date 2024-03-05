@@ -10,10 +10,14 @@
 }
 
 .swiper-button-next {
-  right:-8px !important
+  right:-10px !important;
+  width: 37px !important;
+  height: 37px !important;
 }
 .swiper-button-prev {
-  left:-8px !important
+  left:-10px !important;
+  width: 37px !important;
+  height: 37px !important;
 }
 
 .swiper-button-prev:after,

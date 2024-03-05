@@ -58,18 +58,19 @@ export default function Hero() {
                             },
                         }}
                     >
-                        <SwiperSlide> <HeroCard img={logo1} title='Speaker' /></SwiperSlide>
-                        <SwiperSlide> <HeroCard img={logo2} title='Desktop & laptop' /></SwiperSlide>
-                        <SwiperSlide> <HeroCard img={logo3} title='DSLR camera' /></SwiperSlide>
-                        <SwiperSlide> <HeroCard img={logo1} title='Speaker' /></SwiperSlide>
-                        <SwiperSlide> <HeroCard img={logo2} title='Desktop & laptop' /></SwiperSlide>
-                        <SwiperSlide> <HeroCard img={logo3} title='DSLR camera' /></SwiperSlide>
+                        <SwiperSlide> <HeroCard img={logo1} title='Speaker' imageWidth={"154px"} imageHeight={"94px"}/></SwiperSlide>
+                        <SwiperSlide> <HeroCard img={logo2} title='Desktop & laptop'imageWidth={"122.21px"} imageHeight={"118px"} /></SwiperSlide>
+                        <SwiperSlide> <HeroCard img={logo3} title='DSLR camera' imageWidth={"110.25px"} imageHeight={"118.73px"}/></SwiperSlide>
+                        <SwiperSlide> <HeroCard img={logo1} title='Speaker' imageWidth={"154px"} imageHeight={"94px"}/></SwiperSlide>
+                        <SwiperSlide> <HeroCard img={logo2} title='Desktop & laptop'imageWidth={"122.21px"} imageHeight={"118px"} /></SwiperSlide>
+                        <SwiperSlide> <HeroCard img={logo3} title='DSLR camera' imageWidth={"110.25px"} imageHeight={"118.73px"}/></SwiperSlide>
+                        
                     </Swiper>
                     <div className="swiper-button-prev  ">
-                        <img src={swiperArrowLeft} alt='..' />
+                        <img src={swiperArrowLeft} alt='..' className='w-[37px] h-[37px]' />
                     </div>
-                    <div className="swiper-button-next">
-                        <img src={swiperArrowRight} alt='..' />
+                    <div className="swiper-button-next ">
+                        <img src={swiperArrowRight} alt='..' className='w-[37px] h-[37px]'/>
                     </div>
                 </div>
             </div>

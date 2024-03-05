@@ -55,6 +55,12 @@ export type clientCardProps = {
     title: string,
     img: string,
 }
+export type heroCardProps = {
+    title: string,
+    img: string,
+    imageWidth: string,
+    imageHeight: string,
+}
 export type dealCardProps = {
     title: string,
     img: string,
